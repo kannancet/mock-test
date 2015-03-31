@@ -1,0 +1,9 @@
+<% content_for :title do %>Users<% end %>
+<h3>Here is the user list.  Please click on one to see messages.</h3>
+<h4><button id="create_user" class="create_message_btn">Create User</button></h4>
+
+<%= render "user_create_form" %>
+<br/>
+<%= render 'user_list' %>
+
+
