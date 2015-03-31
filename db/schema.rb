@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150331071817) do
+ActiveRecord::Schema.define(version: 20150331153115) do
+
+  create_table "coupons", force: :cascade do |t|
+    t.string   "code",              limit: 255
+    t.string   "free_trial_length", limit: 255
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+  end
 
   create_table "messages", force: :cascade do |t|
     t.string   "subject",    limit: 255
@@ -23,13 +30,49 @@ ActiveRecord::Schema.define(version: 20150331071817) do
 
   add_index "messages", ["user_id"], name: "index_messages_on_user_id", using: :btree
 
+  create_table "plans", force: :cascade do |t|
+    t.string   "name",          limit: 255
+    t.string   "stripe_id",     limit: 255
+    t.float    "price",         limit: 24
+    t.string   "interval",      limit: 255
+    t.text     "features",      limit: 65535
+    t.boolean  "highlight",     limit: 1
+    t.integer  "display_order", limit: 4
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+  end
+
+  create_table "subscriptions", force: :cascade do |t|
+    t.string   "stripe_id",           limit: 255
+    t.integer  "plan_id",             limit: 4
+    t.string   "last_four",           limit: 255
+    t.integer  "coupon_id",           limit: 4
+    t.string   "card_type",           limit: 255
+    t.float    "current_price",       limit: 24
+    t.integer  "user_id",             limit: 4
+    t.boolean  "deactivation_status", limit: 1
+    t.datetime "deactivated_at"
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+  end
+
   create_table "users", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.string   "name",                   limit: 255
+    t.datetime "created_at",                                      null: false
+    t.datetime "updated_at",                                      null: false
     t.datetime "birth_date"
-    t.string   "gender",     limit: 255
-    t.string   "country",    limit: 255
+    t.string   "gender",                 limit: 255
+    t.string   "country",                limit: 255
+    t.string   "email",                  limit: 255, default: "", null: false
+    t.string   "encrypted_password",     limit: 255, default: "", null: false
+    t.string   "reset_password_token",   limit: 255
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          limit: 4,   default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip",     limit: 255
+    t.string   "last_sign_in_ip",        limit: 255
   end
 
   add_foreign_key "messages", "users"

@@ -43,3 +43,5 @@ group :test do
   gem 'launchy'
   gem 'selenium-webdriver'
 end
+gem 'devise'
+gem 'koudoku', :git => 'https://github.com/andrewculver/koudoku.git'

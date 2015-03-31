@@ -1,4 +1,11 @@
 <%# add navigation links to this file %>
-<li><%= link_to 'Users', users_list_path %></li>
-<!--<li><%= link_to 'Messages', messages_list_path %></li>-->
-<li><%= link_to 'About', page_path('about') %></li>
+<li><%= link_to 'Users', main_app.users_list_path %></li>
+<!--<li><%= link_to 'Messages', main_app.messages_list_path %></li>-->
+<li><%= link_to 'Pricing', main_app.pricing_path %></li>
+<li><%= link_to 'About', main_app.page_path('about') %></li>
+<% unless user_signed_in? %>
+	<li><%= link_to 'Sign In', main_app.new_user_session_path %></li>
+	<li><%= link_to 'Sign Up', main_app.new_user_registration_path %></li>
+<% else %>
+   <li><%= link_to 'Logout', main_app.destroy_user_session_path %></li>
+<% end %>
