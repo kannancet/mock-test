@@ -1,10 +1,12 @@
 class SubscriptionsController < ApplicationController
 
-	before_filter :set_plan, only: [:new, :create]
+	before_filter :set_plan, only: [:new, :create, :upgrade]
+	before_filter :authenticate_user!
 
 	#Function to create subscription
 	def plans
 	  @plans = Plan.all
+	  current_user.clean_subscriptions if current_user
 	end
 
 	#Function for new subscription form
@@ -12,27 +14,38 @@ class SubscriptionsController < ApplicationController
 	  @currencies = CURRENCIES	
 	end
 
-	#Function to 
-	def create
-		begin
+	#Function for upgrade subscription
+	def upgrade
+	  @plan = Plan.find(params[:id])
+	  @subscription.remove if @subscription = current_user.subscription 
 
-		  customer = Stripe::Customer.create(
-		    :email => 'example@stripe.com',
-		    :card  => params[:stripeToken]
-		  )
-
-		  charge = Stripe::Charge.create(
-		    :customer    => customer.id,
-		    :amount      => @amount,
-		    :description => 'Rails Stripe customer',
-		    :currency    => 'usd'
-		  )
-
-		rescue Stripe::CardError => e
-		  flash[:error] = e.message
-		  redirect_to new_subscription_path(@plan)
-		end
+	  redirect_to new_subscription_path(@plan) 	
 	end
+
+	#Function for destroy subscription
+	def destroy
+	  @subscription = Subscription.find(params[:id])
+	  @subscription.remove if @subscription
+
+	  redirect_to plans_path	  	
+	end
+
+	#Function for reactivate subscription
+	def reactivate
+	  @subscription = Subscription.find(params[:id])
+	  (@subscription.reactivate(flash) unless @subscription.active?) if @subscription
+
+	  redirect_to plans_path	  	
+	end
+
+	#Function for deactivate subscription
+	def deactivate
+	  @subscription = Subscription.find(params[:id])
+	  (@subscription.deactivate(flash) if @subscription.active?) if @subscription
+
+	  redirect_to plans_path
+	end
+
 
 	private
 

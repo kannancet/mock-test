@@ -18,12 +18,10 @@ Rails.application.routes.draw do
 
   get 'plans', to: 'subscriptions#plans', as: :plans
   get 'plan/:id/subscribe', to: 'subscriptions#new', as: :new_subscription
-  post 'plan/:id/subscribe', to: 'subscriptions#create', as: :create_subscription
-  # Added by Koudoku.
-  # mount Koudoku::Engine, at: 'koudoku'
-  # scope module: 'koudoku' do
-  #   get 'pricing' => 'subscriptions#index', as: 'pricing'
-  # end
+  get 'plan/:id/upgrade', to: 'subscriptions#upgrade', as: :upgrade_subscription
+  get 'plan/:id/deactivate', to: 'subscriptions#deactivate', as: :deactivate_subscription
+  get 'plan/:id/reactivate', to: 'subscriptions#reactivate', as: :reactivate_subscription
+  get 'plan/:id/unsubscribe', to: 'subscriptions#destroy', as: :destroy_subscription
 
 end
 

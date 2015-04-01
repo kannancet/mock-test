@@ -50,7 +50,8 @@ AvidTest.Subscription = {
             	            }
 
             $.notify("Successfully verified your card", "success");
-            $("#make_payment").val("Subscription in progress ....");
+            $("#make_payment").val("Processing Payment ....");
+            $("#make_payment").removeClass("btn-success").addClass("btn-danger");
 
             AvidTest.Common.callAPI("api/subscriptions/create.json", stripe_params ,  function(response){
             	$.notify(response.flash.message, response.flash.result);

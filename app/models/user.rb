@@ -6,4 +6,16 @@ class User < ActiveRecord::Base
 	has_many :messages
 
 	has_one :subscription
+
+	#Remove deactivated subscriptions above 24 hours.
+	def clean_subscriptions
+	  if @subscription = self.subscription
+	  	unless @subscription.active?
+	  	  recatch_time = ((Time.now - @subscription.deactivated_at) / 3600).round
+	  	  if recatch_time > 24 
+	  	  	@subscription.destroy
+	  	  end
+	  	end
+	  end
+	end
 end

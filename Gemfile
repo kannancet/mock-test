@@ -44,6 +44,5 @@ group :test do
   gem 'selenium-webdriver'
 end
 gem 'devise'
-gem 'koudoku', :git => 'https://github.com/andrewculver/koudoku.git'
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 gem 'open_exchange_rates'

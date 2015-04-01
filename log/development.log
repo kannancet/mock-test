@@ -36411,3 +36411,2198 @@ Processing by SubscriptionsController#plans as HTML
   Rendered layouts/_navigation.html.erb (4.7ms)
   Rendered layouts/_messages.html.erb (0.1ms)
 Completed 200 OK in 885ms (Views: 883.9ms | ActiveRecord: 0.5ms)
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `subscriptions`[0m
+  [1m[35mSubscription Load (0.6ms)[0m  SELECT  `subscriptions`.* FROM `subscriptions`  ORDER BY `subscriptions`.`id` ASC LIMIT 1
+
+
+Started GET "/" for 127.0.0.1 at 2015-04-01 19:50:46 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by VisitorsController#index as HTML
+  Rendered visitors/index.html.erb within layouts/application (23.1ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered layouts/_navigation_links.html.erb (52.3ms)
+  Rendered layouts/_navigation.html.erb (53.9ms)
+  Rendered layouts/_messages.html.erb (0.5ms)
+Completed 200 OK in 15967ms (Views: 15885.0ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/plans" for 127.0.0.1 at 2015-04-01 19:58:25 +0530
+Processing by SubscriptionsController#plans as HTML
+  [1m[36mPlan Load (0.4ms)[0m  [1mSELECT `plans`.* FROM `plans`[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mSubscription Load (0.3ms)[0m  [1mSELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`user_id` = 1 LIMIT 1[0m
+  Rendered subscriptions/plans.html.erb within layouts/application (81.6ms)
+  Rendered layouts/_navigation_links.html.erb (3.2ms)
+  Rendered layouts/_navigation.html.erb (4.5ms)
+  Rendered layouts/_messages.html.erb (0.5ms)
+Completed 200 OK in 808ms (Views: 801.3ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/plans" for 127.0.0.1 at 2015-04-01 20:12:55 +0530
+Processing by SubscriptionsController#plans as HTML
+  [1m[35mPlan Load (0.1ms)[0m  SELECT `plans`.* FROM `plans`
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mSubscription Load (0.1ms)[0m  SELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`user_id` = 1 LIMIT 1
+  Rendered subscriptions/plans.html.erb within layouts/application (39.4ms)
+  Rendered layouts/_navigation_links.html.erb (2.9ms)
+  Rendered layouts/_navigation.html.erb (3.8ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 786ms (Views: 779.3ms | ActiveRecord: 3.0ms)
+  [1m[36mSubscription Load (0.4ms)[0m  [1mSELECT  `subscriptions`.* FROM `subscriptions`  ORDER BY `subscriptions`.`id` ASC LIMIT 1[0m
+  [1m[35mSubscription Load (0.7ms)[0m  SELECT `subscriptions`.* FROM `subscriptions`
+  [1m[36mSubscription Load (0.4ms)[0m  [1mSELECT `subscriptions`.* FROM `subscriptions`[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.6ms)[0m  [1mDELETE FROM `subscriptions` WHERE `subscriptions`.`id` = 6[0m
+  [1m[35m (146.9ms)[0m  COMMIT
+
+
+Started GET "/plans" for 127.0.0.1 at 2015-04-01 20:13:43 +0530
+Processing by SubscriptionsController#plans as HTML
+  [1m[36mPlan Load (0.2ms)[0m  [1mSELECT `plans`.* FROM `plans`[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mSubscription Load (0.3ms)[0m  [1mSELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`user_id` = 1 LIMIT 1[0m
+  Rendered subscriptions/plans.html.erb within layouts/application (66.4ms)
+Completed 500 Internal Server Error in 69ms
+
+NoMethodError - undefined method `plan_id' for nil:NilClass:
+   () home/kannan/Desktop/test/recruit-test/recruit-test/app/helpers/subscriptions_helper.rb:5:in `plan_color'
+   () home/kannan/Desktop/test/recruit-test/recruit-test/app/views/subscriptions/plans.html.erb:6:in `block in _app_views_subscriptions_plans_html_erb__1072879638108399028_51038860'
+  activerecord (4.2.0) lib/active_record/relation/delegation.rb:132:in `method_missing'
+  activerecord (4.2.0) lib/active_record/relation/delegation.rb:99:in `method_missing'
+   () home/kannan/Desktop/test/recruit-test/recruit-test/app/views/subscriptions/plans.html.erb:3:in `_app_views_subscriptions_plans_html_erb__1072879638108399028_51038860'
+  actionview (4.2.0) lib/action_view/template.rb:145:in `block in render'
+  activesupport (4.2.0) lib/active_support/notifications.rb:166:in `instrument'
+  actionview (4.2.0) lib/action_view/template.rb:333:in `instrument'
+  actionview (4.2.0) lib/action_view/template.rb:143:in `render'
+  actionview (4.2.0) lib/action_view/renderer/template_renderer.rb:54:in `block (2 levels) in render_template'
+  actionview (4.2.0) lib/action_view/renderer/abstract_renderer.rb:39:in `block in instrument'
+  activesupport (4.2.0) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.0) lib/active_support/notifications.rb:164:in `instrument'
+  actionview (4.2.0) lib/action_view/renderer/abstract_renderer.rb:39:in `instrument'
+  actionview (4.2.0) lib/action_view/renderer/template_renderer.rb:53:in `block in render_template'
+  actionview (4.2.0) lib/action_view/renderer/template_renderer.rb:61:in `render_with_layout'
+  actionview (4.2.0) lib/action_view/renderer/template_renderer.rb:52:in `render_template'
+  actionview (4.2.0) lib/action_view/renderer/template_renderer.rb:14:in `render'
+  actionview (4.2.0) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionview (4.2.0) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionview (4.2.0) lib/action_view/rendering.rb:100:in `_render_template'
+  actionpack (4.2.0) lib/action_controller/metal/streaming.rb:217:in `_render_template'
+  actionview (4.2.0) lib/action_view/rendering.rb:83:in `render_to_body'
+  actionpack (4.2.0) lib/action_controller/metal/rendering.rb:32:in `render_to_body'
+  actionpack (4.2.0) lib/action_controller/metal/renderers.rb:37:in `render_to_body'
+  actionpack (4.2.0) lib/abstract_controller/rendering.rb:25:in `render'
+  actionpack (4.2.0) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+  activesupport (4.2.0) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+   () home/kannan/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/benchmark.rb:296:in `realtime'
+  activesupport (4.2.0) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+  activerecord (4.2.0) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:40:in `render'
+  actionpack (4.2.0) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.2.0) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.2.0) lib/abstract_controller/base.rb:198:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.2.0) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:117:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:151:in `block in halting_and_conditional'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:234:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:234:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:169:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:169:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:169:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:92:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_process_action_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.2.0) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.0) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.2.0) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.2.0) lib/abstract_controller/base.rb:137:in `process'
+  actionview (4.2.0) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.0) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.2.0) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.0) lib/action_controller/metal.rb:236:in `block in action'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:73:in `dispatch'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:42:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:802:in `call'
+  warden (1.2.3) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.3) lib/warden/manager.rb:34:in `call'
+  rack (1.6.0) lib/rack/etag.rb:24:in `call'
+  rack (1.6.0) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.0) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:647:in `call'
+  activerecord (4.2.0) lib/active_record/migration.rb:378:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.1.2) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.1.0) lib/quiet_assets.rb:27:in `call_with_quiet_assets'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+   () home/kannan/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+   () home/kannan/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+   () home/kannan/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+
+Started POST "/__better_errors/cbe6599ed2ea68cb/variables" for 127.0.0.1 at 2015-04-01 20:13:43 +0530
+
+
+Started GET "/plans" for 127.0.0.1 at 2015-04-01 20:14:33 +0530
+Processing by SubscriptionsController#plans as HTML
+  [1m[35mPlan Load (0.2ms)[0m  SELECT `plans`.* FROM `plans`
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mSubscription Load (0.1ms)[0m  SELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`user_id` = 1 LIMIT 1
+  Rendered subscriptions/plans.html.erb within layouts/application (29.9ms)
+  Rendered layouts/_navigation_links.html.erb (2.8ms)
+  Rendered layouts/_navigation.html.erb (3.5ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 721ms (Views: 714.7ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/plans" for 127.0.0.1 at 2015-04-01 20:17:07 +0530
+Processing by SubscriptionsController#plans as HTML
+  [1m[36mPlan Load (0.2ms)[0m  [1mSELECT `plans`.* FROM `plans`[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mSubscription Load (0.2ms)[0m  [1mSELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`user_id` = 1 LIMIT 1[0m
+  Rendered subscriptions/plans.html.erb within layouts/application (30.3ms)
+  Rendered layouts/_navigation_links.html.erb (2.9ms)
+  Rendered layouts/_navigation.html.erb (3.6ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 716ms (Views: 709.0ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/plan/4/subscribe" for 127.0.0.1 at 2015-04-01 20:18:11 +0530
+Processing by SubscriptionsController#new as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mPlan Load (0.3ms)[0m  SELECT  `plans`.* FROM `plans` WHERE `plans`.`id` = 4 LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered subscriptions/new.html.erb within layouts/application (4.4ms)
+  Rendered layouts/_navigation_links.html.erb (3.5ms)
+  Rendered layouts/_navigation.html.erb (4.8ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 844ms (Views: 841.9ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/api/subscriptions/create.json" for 127.0.0.1 at 2015-04-01 20:19:18 +0530
+Processing by Api::SubscriptionsController#create as JSON
+  Parameters: {"stripe_params"=>{"token"=>"tok_15mn9aH4XkuarA8O8y2RDZ71", "amount"=>"1000", "email"=>"kannanr@7nodes.com", "desc"=>"Avid Life Payment", "currency"=>"USD", "stripe_plan"=>"1", "card"=>"card_15mn9aH4XkuarA8OYhOwrwv8", "target_plan"=>"4"}}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `subscriptions` (`stripe_card_id`, `stripe_customer_id`, `stripe_charge_id`, `stripe_payment_email`, `user_id`, `plan_id`, `created_at`, `updated_at`) VALUES ('card_15mn9aH4XkuarA8OYhOwrwv8', 'cus_5ykfmQGC4ojtNX', 'ch_15mn9pH4XkuarA8OnPzbck9a', 'kannanr@7nodes.com', 1, 4, '2015-04-01 14:49:29.884839', '2015-04-01 14:49:29.884839')
+  [1m[36m (325.4ms)[0m  [1mCOMMIT[0m
+  Rendered api/subscriptions/create.json.jbuilder (30.3ms)
+Completed 200 OK in 11482ms (Views: 36.4ms | ActiveRecord: 326.5ms)
+
+
+Started GET "/plans" for 127.0.0.1 at 2015-04-01 20:19:30 +0530
+Processing by SubscriptionsController#plans as HTML
+  [1m[35mPlan Load (0.3ms)[0m  SELECT `plans`.* FROM `plans`
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mSubscription Load (0.7ms)[0m  SELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`user_id` = 1 LIMIT 1
+  Rendered subscriptions/plans.html.erb within layouts/application (12.6ms)
+  Rendered layouts/_navigation_links.html.erb (2.9ms)
+  Rendered layouts/_navigation.html.erb (3.7ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 880ms (Views: 878.3ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/plans" for 127.0.0.1 at 2015-04-01 20:24:41 +0530
+Processing by SubscriptionsController#plans as HTML
+  [1m[36mPlan Load (0.1ms)[0m  [1mSELECT `plans`.* FROM `plans`[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mSubscription Load (0.1ms)[0m  [1mSELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`user_id` = 1 LIMIT 1[0m
+  Rendered subscriptions/plans.html.erb within layouts/application (4.1ms)
+  Rendered layouts/_navigation_links.html.erb (2.8ms)
+  Rendered layouts/_navigation.html.erb (3.6ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 918ms (Views: 917.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/plans" for 127.0.0.1 at 2015-04-01 20:24:41 +0530
+Processing by SubscriptionsController#plans as HTML
+  [1m[35mPlan Load (0.2ms)[0m  SELECT `plans`.* FROM `plans`
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mSubscription Load (0.1ms)[0m  SELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`user_id` = 1 LIMIT 1
+  Rendered subscriptions/plans.html.erb within layouts/application (4.5ms)
+  Rendered layouts/_navigation_links.html.erb (3.1ms)
+  Rendered layouts/_navigation.html.erb (3.8ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 722ms (Views: 719.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/plans" for 127.0.0.1 at 2015-04-01 20:25:29 +0530
+Processing by SubscriptionsController#plans as HTML
+  [1m[36mPlan Load (0.2ms)[0m  [1mSELECT `plans`.* FROM `plans`[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mSubscription Load (0.2ms)[0m  [1mSELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`user_id` = 1 LIMIT 1[0m
+  Rendered subscriptions/plans.html.erb within layouts/application (42.0ms)
+  Rendered layouts/_navigation_links.html.erb (2.9ms)
+  Rendered layouts/_navigation.html.erb (3.7ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 791ms (Views: 784.3ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/plans" for 127.0.0.1 at 2015-04-01 20:25:52 +0530
+Processing by SubscriptionsController#plans as HTML
+  [1m[35mPlan Load (0.1ms)[0m  SELECT `plans`.* FROM `plans`
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mSubscription Load (0.1ms)[0m  SELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`user_id` = 1 LIMIT 1
+  Rendered subscriptions/plans.html.erb within layouts/application (36.8ms)
+  Rendered layouts/_navigation_links.html.erb (2.7ms)
+  Rendered layouts/_navigation.html.erb (3.4ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 779ms (Views: 773.7ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/plans" for 127.0.0.1 at 2015-04-01 20:28:26 +0530
+Processing by SubscriptionsController#plans as HTML
+  [1m[36mPlan Load (0.2ms)[0m  [1mSELECT `plans`.* FROM `plans`[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mSubscription Load (0.1ms)[0m  [1mSELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`user_id` = 1 LIMIT 1[0m
+  Rendered subscriptions/plans.html.erb within layouts/application (38.0ms)
+  Rendered layouts/_navigation_links.html.erb (2.7ms)
+  Rendered layouts/_navigation.html.erb (3.4ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 782ms (Views: 775.4ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/plans" for 127.0.0.1 at 2015-04-01 20:48:56 +0530
+Processing by SubscriptionsController#plans as HTML
+  [1m[35mPlan Load (0.2ms)[0m  SELECT `plans`.* FROM `plans`
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mSubscription Load (0.1ms)[0m  SELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`user_id` = 1 LIMIT 1
+  Rendered subscriptions/plans.html.erb within layouts/application (113.7ms)
+Completed 500 Internal Server Error in 121ms
+
+NameError - undefined local variable or method `plan' for #<#<Class:0x00000006615e08>:0x000000066182c0>:
+   () home/kannan/Desktop/test/recruit-test/recruit-test/app/helpers/subscriptions_helper.rb:34:in `activation_href_text'
+   () home/kannan/Desktop/test/recruit-test/recruit-test/app/views/subscriptions/plans.html.erb:21:in `block in _app_views_subscriptions_plans_html_erb__1072879638108399028_53540800'
+  activerecord (4.2.0) lib/active_record/relation/delegation.rb:132:in `method_missing'
+  activerecord (4.2.0) lib/active_record/relation/delegation.rb:99:in `method_missing'
+   () home/kannan/Desktop/test/recruit-test/recruit-test/app/views/subscriptions/plans.html.erb:3:in `_app_views_subscriptions_plans_html_erb__1072879638108399028_53540800'
+  actionview (4.2.0) lib/action_view/template.rb:145:in `block in render'
+  activesupport (4.2.0) lib/active_support/notifications.rb:166:in `instrument'
+  actionview (4.2.0) lib/action_view/template.rb:333:in `instrument'
+  actionview (4.2.0) lib/action_view/template.rb:143:in `render'
+  actionview (4.2.0) lib/action_view/renderer/template_renderer.rb:54:in `block (2 levels) in render_template'
+  actionview (4.2.0) lib/action_view/renderer/abstract_renderer.rb:39:in `block in instrument'
+  activesupport (4.2.0) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.0) lib/active_support/notifications.rb:164:in `instrument'
+  actionview (4.2.0) lib/action_view/renderer/abstract_renderer.rb:39:in `instrument'
+  actionview (4.2.0) lib/action_view/renderer/template_renderer.rb:53:in `block in render_template'
+  actionview (4.2.0) lib/action_view/renderer/template_renderer.rb:61:in `render_with_layout'
+  actionview (4.2.0) lib/action_view/renderer/template_renderer.rb:52:in `render_template'
+  actionview (4.2.0) lib/action_view/renderer/template_renderer.rb:14:in `render'
+  actionview (4.2.0) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionview (4.2.0) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionview (4.2.0) lib/action_view/rendering.rb:100:in `_render_template'
+  actionpack (4.2.0) lib/action_controller/metal/streaming.rb:217:in `_render_template'
+  actionview (4.2.0) lib/action_view/rendering.rb:83:in `render_to_body'
+  actionpack (4.2.0) lib/action_controller/metal/rendering.rb:32:in `render_to_body'
+  actionpack (4.2.0) lib/action_controller/metal/renderers.rb:37:in `render_to_body'
+  actionpack (4.2.0) lib/abstract_controller/rendering.rb:25:in `render'
+  actionpack (4.2.0) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+  activesupport (4.2.0) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+   () home/kannan/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/benchmark.rb:296:in `realtime'
+  activesupport (4.2.0) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+  activerecord (4.2.0) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:40:in `render'
+  actionpack (4.2.0) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.2.0) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.2.0) lib/abstract_controller/base.rb:198:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.2.0) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:117:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:151:in `block in halting_and_conditional'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:234:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:234:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:169:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:169:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:169:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:92:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_process_action_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.2.0) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.0) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.2.0) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.2.0) lib/abstract_controller/base.rb:137:in `process'
+  actionview (4.2.0) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.0) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.2.0) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.0) lib/action_controller/metal.rb:236:in `block in action'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:73:in `dispatch'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:42:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:802:in `call'
+  warden (1.2.3) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.3) lib/warden/manager.rb:34:in `call'
+  rack (1.6.0) lib/rack/etag.rb:24:in `call'
+  rack (1.6.0) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.0) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:647:in `call'
+  activerecord (4.2.0) lib/active_record/migration.rb:378:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.1.2) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.1.0) lib/quiet_assets.rb:27:in `call_with_quiet_assets'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+   () home/kannan/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+   () home/kannan/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+   () home/kannan/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+
+Started POST "/__better_errors/44853afdbfbabc2f/variables" for 127.0.0.1 at 2015-04-01 20:48:57 +0530
+
+
+Started GET "/plans" for 127.0.0.1 at 2015-04-01 20:49:32 +0530
+Processing by SubscriptionsController#plans as HTML
+  [1m[36mPlan Load (0.1ms)[0m  [1mSELECT `plans`.* FROM `plans`[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mSubscription Load (0.2ms)[0m  [1mSELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`user_id` = 1 LIMIT 1[0m
+  [1m[35mPlan Load (0.1ms)[0m  SELECT  `plans`.* FROM `plans` WHERE `plans`.`id` = 4 LIMIT 1
+  Rendered subscriptions/plans.html.erb within layouts/application (41.4ms)
+  Rendered layouts/_navigation_links.html.erb (2.7ms)
+  Rendered layouts/_navigation.html.erb (3.4ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 767ms (Views: 761.1ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/plans" for 127.0.0.1 at 2015-04-01 20:51:06 +0530
+Processing by SubscriptionsController#plans as HTML
+  [1m[36mPlan Load (0.1ms)[0m  [1mSELECT `plans`.* FROM `plans`[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mSubscription Load (0.1ms)[0m  [1mSELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`user_id` = 1 LIMIT 1[0m
+  [1m[35mPlan Load (0.1ms)[0m  SELECT  `plans`.* FROM `plans` WHERE `plans`.`id` = 4 LIMIT 1
+  Rendered subscriptions/plans.html.erb within layouts/application (5.4ms)
+  Rendered layouts/_navigation_links.html.erb (3.2ms)
+  Rendered layouts/_navigation.html.erb (3.9ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 692ms (Views: 690.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/plans" for 127.0.0.1 at 2015-04-01 20:51:31 +0530
+Processing by SubscriptionsController#plans as HTML
+  [1m[36mPlan Load (0.1ms)[0m  [1mSELECT `plans`.* FROM `plans`[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mSubscription Load (0.1ms)[0m  [1mSELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`user_id` = 1 LIMIT 1[0m
+  [1m[35mPlan Load (0.1ms)[0m  SELECT  `plans`.* FROM `plans` WHERE `plans`.`id` = 4 LIMIT 1
+  Rendered subscriptions/plans.html.erb within layouts/application (4.9ms)
+  Rendered layouts/_navigation_links.html.erb (2.8ms)
+  Rendered layouts/_navigation.html.erb (3.6ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 732ms (Views: 730.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/plans" for 127.0.0.1 at 2015-04-01 20:51:54 +0530
+Processing by SubscriptionsController#plans as HTML
+  [1m[36mPlan Load (0.4ms)[0m  [1mSELECT `plans`.* FROM `plans`[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mSubscription Load (0.3ms)[0m  [1mSELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`user_id` = 1 LIMIT 1[0m
+  [1m[35mPlan Load (0.2ms)[0m  SELECT  `plans`.* FROM `plans` WHERE `plans`.`id` = 4 LIMIT 1
+  Rendered subscriptions/plans.html.erb within layouts/application (12.6ms)
+  Rendered layouts/_navigation_links.html.erb (2.7ms)
+  Rendered layouts/_navigation.html.erb (3.4ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 704ms (Views: 700.8ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/plans" for 127.0.0.1 at 2015-04-01 20:52:04 +0530
+Processing by SubscriptionsController#plans as HTML
+  [1m[36mPlan Load (0.2ms)[0m  [1mSELECT `plans`.* FROM `plans`[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mSubscription Load (0.1ms)[0m  [1mSELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`user_id` = 1 LIMIT 1[0m
+  [1m[35mPlan Load (0.1ms)[0m  SELECT  `plans`.* FROM `plans` WHERE `plans`.`id` = 4 LIMIT 1
+  Rendered subscriptions/plans.html.erb within layouts/application (5.5ms)
+  Rendered layouts/_navigation_links.html.erb (3.0ms)
+  Rendered layouts/_navigation.html.erb (3.7ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 822ms (Views: 820.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/plans" for 127.0.0.1 at 2015-04-01 20:52:24 +0530
+Processing by SubscriptionsController#plans as HTML
+  [1m[36mPlan Load (0.2ms)[0m  [1mSELECT `plans`.* FROM `plans`[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mSubscription Load (0.2ms)[0m  [1mSELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`user_id` = 1 LIMIT 1[0m
+  [1m[35mPlan Load (0.1ms)[0m  SELECT  `plans`.* FROM `plans` WHERE `plans`.`id` = 4 LIMIT 1
+  Rendered subscriptions/plans.html.erb within layouts/application (5.1ms)
+  Rendered layouts/_navigation_links.html.erb (5.4ms)
+  Rendered layouts/_navigation.html.erb (6.7ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 802ms (Views: 800.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/plans" for 127.0.0.1 at 2015-04-01 20:52:35 +0530
+Processing by SubscriptionsController#plans as HTML
+  [1m[36mPlan Load (0.1ms)[0m  [1mSELECT `plans`.* FROM `plans`[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mSubscription Load (0.1ms)[0m  [1mSELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`user_id` = 1 LIMIT 1[0m
+  [1m[35mPlan Load (0.1ms)[0m  SELECT  `plans`.* FROM `plans` WHERE `plans`.`id` = 4 LIMIT 1
+  Rendered subscriptions/plans.html.erb within layouts/application (5.7ms)
+  Rendered layouts/_navigation_links.html.erb (3.2ms)
+  Rendered layouts/_navigation.html.erb (4.1ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 696ms (Views: 694.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/plans" for 127.0.0.1 at 2015-04-01 20:52:47 +0530
+Processing by SubscriptionsController#plans as HTML
+  [1m[36mPlan Load (0.1ms)[0m  [1mSELECT `plans`.* FROM `plans`[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mSubscription Load (0.1ms)[0m  [1mSELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`user_id` = 1 LIMIT 1[0m
+  [1m[35mPlan Load (0.1ms)[0m  SELECT  `plans`.* FROM `plans` WHERE `plans`.`id` = 4 LIMIT 1
+  Rendered subscriptions/plans.html.erb within layouts/application (5.2ms)
+  Rendered layouts/_navigation_links.html.erb (2.6ms)
+  Rendered layouts/_navigation.html.erb (3.3ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 676ms (Views: 673.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/plans" for 127.0.0.1 at 2015-04-01 20:53:06 +0530
+Processing by SubscriptionsController#plans as HTML
+  [1m[36mPlan Load (0.1ms)[0m  [1mSELECT `plans`.* FROM `plans`[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mSubscription Load (0.1ms)[0m  [1mSELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`user_id` = 1 LIMIT 1[0m
+  [1m[35mPlan Load (0.1ms)[0m  SELECT  `plans`.* FROM `plans` WHERE `plans`.`id` = 4 LIMIT 1
+  Rendered subscriptions/plans.html.erb within layouts/application (5.1ms)
+  Rendered layouts/_navigation_links.html.erb (4.5ms)
+  Rendered layouts/_navigation.html.erb (5.5ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 806ms (Views: 805.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/plans" for 127.0.0.1 at 2015-04-01 20:54:07 +0530
+Processing by SubscriptionsController#plans as HTML
+  [1m[36mPlan Load (0.1ms)[0m  [1mSELECT `plans`.* FROM `plans`[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mSubscription Load (0.1ms)[0m  [1mSELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`user_id` = 1 LIMIT 1[0m
+  [1m[35mPlan Load (0.1ms)[0m  SELECT  `plans`.* FROM `plans` WHERE `plans`.`id` = 4 LIMIT 1
+  Rendered subscriptions/plans.html.erb within layouts/application (5.2ms)
+  Rendered layouts/_navigation_links.html.erb (2.5ms)
+  Rendered layouts/_navigation.html.erb (3.2ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 688ms (Views: 686.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/plans" for 127.0.0.1 at 2015-04-01 20:54:43 +0530
+Processing by SubscriptionsController#plans as HTML
+  [1m[36mPlan Load (0.2ms)[0m  [1mSELECT `plans`.* FROM `plans`[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mSubscription Load (0.1ms)[0m  [1mSELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`user_id` = 1 LIMIT 1[0m
+  [1m[35mPlan Load (0.1ms)[0m  SELECT  `plans`.* FROM `plans` WHERE `plans`.`id` = 4 LIMIT 1
+  Rendered subscriptions/plans.html.erb within layouts/application (4.9ms)
+  Rendered layouts/_navigation_links.html.erb (2.8ms)
+  Rendered layouts/_navigation.html.erb (3.5ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 684ms (Views: 682.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/plans" for 127.0.0.1 at 2015-04-01 20:55:00 +0530
+Processing by SubscriptionsController#plans as HTML
+  [1m[36mPlan Load (0.4ms)[0m  [1mSELECT `plans`.* FROM `plans`[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mSubscription Load (0.1ms)[0m  [1mSELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`user_id` = 1 LIMIT 1[0m
+  [1m[35mPlan Load (0.1ms)[0m  SELECT  `plans`.* FROM `plans` WHERE `plans`.`id` = 4 LIMIT 1
+  Rendered subscriptions/plans.html.erb within layouts/application (9.2ms)
+  Rendered layouts/_navigation_links.html.erb (2.7ms)
+  Rendered layouts/_navigation.html.erb (3.5ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 746ms (Views: 743.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/plans" for 127.0.0.1 at 2015-04-01 20:59:41 +0530
+Processing by SubscriptionsController#plans as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mPlan Load (0.1ms)[0m  SELECT `plans`.* FROM `plans`
+  [1m[36mSubscription Load (0.1ms)[0m  [1mSELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`user_id` = 1 LIMIT 1[0m
+  [1m[35mPlan Load (0.2ms)[0m  SELECT  `plans`.* FROM `plans` WHERE `plans`.`id` = 4 LIMIT 1
+  Rendered subscriptions/plans.html.erb within layouts/application (85.5ms)
+  Rendered layouts/_navigation_links.html.erb (2.7ms)
+  Rendered layouts/_navigation.html.erb (3.3ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 850ms (Views: 764.0ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/plan/4/deactivate" for 127.0.0.1 at 2015-04-01 20:59:51 +0530
+Processing by SubscriptionsController#deactivate as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mSubscription Load (0.3ms)[0m  SELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`id` = 4 LIMIT 1
+Completed 404 Not Found in 3ms
+
+ActiveRecord::RecordNotFound - Couldn't find Subscription with 'id'=4:
+  activerecord (4.2.0) lib/active_record/core.rb:154:in `find'
+   () home/kannan/Desktop/test/recruit-test/recruit-test/app/controllers/subscriptions_controller.rb:33:in `deactivate'
+  actionpack (4.2.0) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (4.2.0) lib/abstract_controller/base.rb:198:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.2.0) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:117:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:169:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:151:in `block in halting_and_conditional'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:234:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:234:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:169:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:169:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:169:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:92:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_process_action_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.2.0) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.0) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.2.0) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.2.0) lib/abstract_controller/base.rb:137:in `process'
+  actionview (4.2.0) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.0) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.2.0) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.0) lib/action_controller/metal.rb:236:in `block in action'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:73:in `dispatch'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:42:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:802:in `call'
+  warden (1.2.3) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.3) lib/warden/manager.rb:34:in `call'
+  rack (1.6.0) lib/rack/etag.rb:24:in `call'
+  rack (1.6.0) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.0) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:647:in `call'
+  activerecord (4.2.0) lib/active_record/migration.rb:378:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.1.2) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.1.0) lib/quiet_assets.rb:27:in `call_with_quiet_assets'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+   () home/kannan/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+   () home/kannan/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+   () home/kannan/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+
+Started GET "/plan/4/deactivate" for 127.0.0.1 at 2015-04-01 20:59:51 +0530
+Processing by SubscriptionsController#deactivate as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mSubscription Load (0.1ms)[0m  SELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`id` = 4 LIMIT 1
+Completed 404 Not Found in 2ms
+
+ActiveRecord::RecordNotFound - Couldn't find Subscription with 'id'=4:
+  activerecord (4.2.0) lib/active_record/core.rb:154:in `find'
+   () home/kannan/Desktop/test/recruit-test/recruit-test/app/controllers/subscriptions_controller.rb:33:in `deactivate'
+  actionpack (4.2.0) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (4.2.0) lib/abstract_controller/base.rb:198:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.2.0) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:117:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:169:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:151:in `block in halting_and_conditional'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:234:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:234:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:169:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:169:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:169:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:92:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_process_action_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.2.0) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.0) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.2.0) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.2.0) lib/abstract_controller/base.rb:137:in `process'
+  actionview (4.2.0) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.0) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.2.0) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.0) lib/action_controller/metal.rb:236:in `block in action'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:73:in `dispatch'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:42:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:802:in `call'
+  warden (1.2.3) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.3) lib/warden/manager.rb:34:in `call'
+  rack (1.6.0) lib/rack/etag.rb:24:in `call'
+  rack (1.6.0) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.0) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:647:in `call'
+  activerecord (4.2.0) lib/active_record/migration.rb:378:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.1.2) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.1.0) lib/quiet_assets.rb:27:in `call_with_quiet_assets'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+   () home/kannan/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+   () home/kannan/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+   () home/kannan/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+
+Started POST "/__better_errors/6c64958ad9f09f3b/variables" for 127.0.0.1 at 2015-04-01 20:59:51 +0530
+  [1m[36mSubscription Load (0.3ms)[0m  [1mSELECT `subscriptions`.* FROM `subscriptions`[0m
+
+
+Started GET "/plans" for 127.0.0.1 at 2015-04-01 21:00:35 +0530
+Processing by SubscriptionsController#plans as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mPlan Load (0.2ms)[0m  [1mSELECT `plans`.* FROM `plans`[0m
+  [1m[35mSubscription Load (0.1ms)[0m  SELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`user_id` = 1 LIMIT 1
+  [1m[36mPlan Load (0.2ms)[0m  [1mSELECT  `plans`.* FROM `plans` WHERE `plans`.`id` = 4 LIMIT 1[0m
+  Rendered subscriptions/plans.html.erb within layouts/application (34.7ms)
+  Rendered layouts/_navigation_links.html.erb (3.3ms)
+  Rendered layouts/_navigation.html.erb (4.4ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 844ms (Views: 817.2ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/plan/7/deactivate" for 127.0.0.1 at 2015-04-01 21:00:39 +0530
+Processing by SubscriptionsController#deactivate as HTML
+  Parameters: {"id"=>"7"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mSubscription Load (0.3ms)[0m  [1mSELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`id` = 7 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (56.8ms)[0m  [1mUPDATE `subscriptions` SET `deactivation_status` = 1, `deactivated_at` = '2015-04-01 15:30:39.311022', `updated_at` = '2015-04-01 15:30:39.312587' WHERE `subscriptions`.`id` = 7[0m
+  [1m[35m (60.4ms)[0m  COMMIT
+Redirected to http://localhost:3000/plans
+Completed 302 Found in 127ms (ActiveRecord: 117.8ms)
+
+
+Started GET "/plans" for 127.0.0.1 at 2015-04-01 21:00:39 +0530
+Processing by SubscriptionsController#plans as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mPlan Load (0.1ms)[0m  SELECT `plans`.* FROM `plans`
+  [1m[36mSubscription Load (0.3ms)[0m  [1mSELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`user_id` = 1 LIMIT 1[0m
+  [1m[35mPlan Load (0.1ms)[0m  SELECT  `plans`.* FROM `plans` WHERE `plans`.`id` = 4 LIMIT 1
+  Rendered subscriptions/plans.html.erb within layouts/application (4.5ms)
+  Rendered layouts/_navigation_links.html.erb (2.8ms)
+  Rendered layouts/_navigation.html.erb (3.7ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 686ms (Views: 683.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/plans" for 127.0.0.1 at 2015-04-01 21:13:02 +0530
+Processing by SubscriptionsController#plans as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mSubscription Load (0.1ms)[0m  SELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`user_id` = 1 LIMIT 1
+  [1m[36mPlan Load (0.1ms)[0m  [1mSELECT `plans`.* FROM `plans`[0m
+  [1m[35mPlan Load (0.2ms)[0m  SELECT  `plans`.* FROM `plans` WHERE `plans`.`id` = 4 LIMIT 1
+  Rendered subscriptions/plans.html.erb within layouts/application (12.7ms)
+  Rendered layouts/_navigation_links.html.erb (2.5ms)
+  Rendered layouts/_navigation.html.erb (3.3ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 782ms (Views: 683.3ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/plan/7/reactivate" for 127.0.0.1 at 2015-04-01 21:14:15 +0530
+Processing by SubscriptionsController#reactivate as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mSubscription Load (0.3ms)[0m  SELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`id` = 7 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE `subscriptions` SET `deactivation_status` = 0, `deactivated_at` = NULL, `updated_at` = '2015-04-01 15:44:15.634794' WHERE `subscriptions`.`id` = 7
+  [1m[36m (164.2ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/plans
+Completed 302 Found in 171ms (ActiveRecord: 164.8ms)
+
+
+Started GET "/plans" for 127.0.0.1 at 2015-04-01 21:14:15 +0530
+Processing by SubscriptionsController#plans as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mSubscription Load (0.6ms)[0m  [1mSELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`user_id` = 1 LIMIT 1[0m
+  [1m[35mPlan Load (0.3ms)[0m  SELECT `plans`.* FROM `plans`
+  [1m[36mPlan Load (0.2ms)[0m  [1mSELECT  `plans`.* FROM `plans` WHERE `plans`.`id` = 4 LIMIT 1[0m
+  Rendered subscriptions/plans.html.erb within layouts/application (7.0ms)
+  Rendered layouts/_navigation_links.html.erb (2.6ms)
+  Rendered layouts/_navigation.html.erb (3.4ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 765ms (Views: 759.3ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/plans" for 127.0.0.1 at 2015-04-01 21:16:46 +0530
+Processing by SubscriptionsController#plans as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mSubscription Load (0.1ms)[0m  [1mSELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`user_id` = 1 LIMIT 1[0m
+  [1m[35mPlan Load (0.1ms)[0m  SELECT `plans`.* FROM `plans`
+  [1m[36mPlan Load (0.1ms)[0m  [1mSELECT  `plans`.* FROM `plans` WHERE `plans`.`id` = 4 LIMIT 1[0m
+  Rendered subscriptions/plans.html.erb within layouts/application (2.0ms)
+  Rendered layouts/_navigation_links.html.erb (2.6ms)
+  Rendered layouts/_navigation.html.erb (3.4ms)
+  Rendered layouts/_messages.html.erb (0.5ms)
+Completed 200 OK in 693ms (Views: 689.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/plan/7/deactivate" for 127.0.0.1 at 2015-04-01 21:16:48 +0530
+Processing by SubscriptionsController#deactivate as HTML
+  Parameters: {"id"=>"7"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mSubscription Load (0.2ms)[0m  [1mSELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`id` = 7 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE `subscriptions` SET `deactivation_status` = 1, `deactivated_at` = '2015-04-01 15:46:48.819254', `updated_at` = '2015-04-01 15:46:48.820170' WHERE `subscriptions`.`id` = 7[0m
+  [1m[35m (75.8ms)[0m  COMMIT
+Redirected to http://localhost:3000/plans
+Completed 302 Found in 82ms (ActiveRecord: 76.4ms)
+
+
+Started GET "/plans" for 127.0.0.1 at 2015-04-01 21:16:48 +0530
+Processing by SubscriptionsController#plans as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mSubscription Load (0.3ms)[0m  SELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`user_id` = 1 LIMIT 1
+  [1m[36mPlan Load (0.1ms)[0m  [1mSELECT `plans`.* FROM `plans`[0m
+  [1m[35mPlan Load (0.1ms)[0m  SELECT  `plans`.* FROM `plans` WHERE `plans`.`id` = 4 LIMIT 1
+  Rendered subscriptions/plans.html.erb within layouts/application (2.2ms)
+  Rendered layouts/_navigation_links.html.erb (2.7ms)
+  Rendered layouts/_navigation.html.erb (3.6ms)
+  Rendered layouts/_messages.html.erb (0.6ms)
+Completed 200 OK in 731ms (Views: 728.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/plans" for 127.0.0.1 at 2015-04-01 21:17:08 +0530
+Processing by SubscriptionsController#plans as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mSubscription Load (0.1ms)[0m  SELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`user_id` = 1 LIMIT 1
+  [1m[36mPlan Load (0.1ms)[0m  [1mSELECT `plans`.* FROM `plans`[0m
+  [1m[35mPlan Load (0.1ms)[0m  SELECT  `plans`.* FROM `plans` WHERE `plans`.`id` = 4 LIMIT 1
+  Rendered subscriptions/plans.html.erb within layouts/application (2.3ms)
+  Rendered layouts/_navigation_links.html.erb (4.0ms)
+  Rendered layouts/_navigation.html.erb (5.0ms)
+  Rendered layouts/_messages.html.erb (0.6ms)
+Completed 200 OK in 778ms (Views: 773.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/plan/7/reactivate" for 127.0.0.1 at 2015-04-01 21:17:10 +0530
+Processing by SubscriptionsController#reactivate as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mSubscription Load (0.5ms)[0m  SELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`id` = 7 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE `subscriptions` SET `deactivation_status` = 0, `deactivated_at` = NULL, `updated_at` = '2015-04-01 15:47:10.760374' WHERE `subscriptions`.`id` = 7
+  [1m[36m (59.8ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/plans
+Completed 302 Found in 69ms (ActiveRecord: 61.0ms)
+
+
+Started GET "/plans" for 127.0.0.1 at 2015-04-01 21:17:10 +0530
+Processing by SubscriptionsController#plans as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mSubscription Load (0.2ms)[0m  [1mSELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`user_id` = 1 LIMIT 1[0m
+  [1m[35mPlan Load (0.1ms)[0m  SELECT `plans`.* FROM `plans`
+  [1m[36mPlan Load (0.1ms)[0m  [1mSELECT  `plans`.* FROM `plans` WHERE `plans`.`id` = 4 LIMIT 1[0m
+  Rendered subscriptions/plans.html.erb within layouts/application (4.8ms)
+  Rendered layouts/_navigation_links.html.erb (2.6ms)
+  Rendered layouts/_navigation.html.erb (3.4ms)
+  Rendered layouts/_messages.html.erb (0.6ms)
+Completed 200 OK in 842ms (Views: 839.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/plan/7/deactivate" for 127.0.0.1 at 2015-04-01 21:17:15 +0530
+Processing by SubscriptionsController#deactivate as HTML
+  Parameters: {"id"=>"7"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mSubscription Load (0.2ms)[0m  [1mSELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`id` = 7 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE `subscriptions` SET `deactivation_status` = 1, `deactivated_at` = '2015-04-01 15:47:15.412989', `updated_at` = '2015-04-01 15:47:15.413822' WHERE `subscriptions`.`id` = 7[0m
+  [1m[35m (118.3ms)[0m  COMMIT
+Redirected to http://localhost:3000/plans
+Completed 302 Found in 124ms (ActiveRecord: 118.9ms)
+
+
+Started GET "/plans" for 127.0.0.1 at 2015-04-01 21:17:15 +0530
+Processing by SubscriptionsController#plans as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mSubscription Load (0.2ms)[0m  SELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`user_id` = 1 LIMIT 1
+  [1m[36mPlan Load (0.1ms)[0m  [1mSELECT `plans`.* FROM `plans`[0m
+  [1m[35mPlan Load (0.1ms)[0m  SELECT  `plans`.* FROM `plans` WHERE `plans`.`id` = 4 LIMIT 1
+  Rendered subscriptions/plans.html.erb within layouts/application (2.4ms)
+  Rendered layouts/_navigation_links.html.erb (2.7ms)
+  Rendered layouts/_navigation.html.erb (3.5ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 734ms (Views: 730.7ms | ActiveRecord: 0.6ms)
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `subscriptions`[0m
+  [1m[35mSubscription Load (0.6ms)[0m  SELECT  `subscriptions`.* FROM `subscriptions`  ORDER BY `subscriptions`.`id` ASC LIMIT 1
+
+
+Started GET "/plan/7/reactivate" for 127.0.0.1 at 2015-04-01 21:17:49 +0530
+Processing by SubscriptionsController#reactivate as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mSubscription Load (0.6ms)[0m  SELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`id` = 7 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  UPDATE `subscriptions` SET `deactivation_status` = 0, `deactivated_at` = NULL, `updated_at` = '2015-04-01 15:47:49.210907' WHERE `subscriptions`.`id` = 7
+  [1m[36m (169.8ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/plans
+Completed 302 Found in 184ms (ActiveRecord: 171.5ms)
+
+
+Started GET "/plans" for 127.0.0.1 at 2015-04-01 21:17:49 +0530
+Processing by SubscriptionsController#plans as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mSubscription Load (0.3ms)[0m  [1mSELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`user_id` = 1 LIMIT 1[0m
+  [1m[35mPlan Load (0.1ms)[0m  SELECT `plans`.* FROM `plans`
+  [1m[36mPlan Load (0.1ms)[0m  [1mSELECT  `plans`.* FROM `plans` WHERE `plans`.`id` = 4 LIMIT 1[0m
+  Rendered subscriptions/plans.html.erb within layouts/application (2.9ms)
+  Rendered layouts/_navigation_links.html.erb (5.2ms)
+  Rendered layouts/_navigation.html.erb (6.6ms)
+  Rendered layouts/_messages.html.erb (0.2ms)
+Completed 200 OK in 787ms (Views: 784.3ms | ActiveRecord: 0.6ms)
+  [1m[36mSubscription Load (0.6ms)[0m  [1mSELECT  `subscriptions`.* FROM `subscriptions`  ORDER BY `subscriptions`.`id` ASC LIMIT 1[0m
+
+
+Started GET "/plans" for 127.0.0.1 at 2015-04-01 21:21:29 +0530
+Processing by SubscriptionsController#plans as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mSubscription Load (0.1ms)[0m  [1mSELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`user_id` = 1 LIMIT 1[0m
+  [1m[35mPlan Load (0.2ms)[0m  SELECT `plans`.* FROM `plans`
+  [1m[36mPlan Load (0.2ms)[0m  [1mSELECT  `plans`.* FROM `plans` WHERE `plans`.`id` = 4 LIMIT 1[0m
+  Rendered subscriptions/plans.html.erb within layouts/application (11.8ms)
+  Rendered layouts/_navigation_links.html.erb (2.7ms)
+  Rendered layouts/_navigation.html.erb (3.5ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 935ms (Views: 833.4ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/plan/7/deactivate" for 127.0.0.1 at 2015-04-01 21:21:32 +0530
+Processing by SubscriptionsController#deactivate as HTML
+  Parameters: {"id"=>"7"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mSubscription Load (0.3ms)[0m  [1mSELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`id` = 7 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE `subscriptions` SET `deactivation_status` = 1, `deactivated_at` = '2015-04-01 15:51:32.381264', `updated_at` = '2015-04-01 15:51:32.382446' WHERE `subscriptions`.`id` = 7[0m
+  [1m[35m (75.0ms)[0m  COMMIT
+Redirected to http://localhost:3000/plans
+Completed 302 Found in 82ms (ActiveRecord: 75.7ms)
+
+
+Started GET "/plans" for 127.0.0.1 at 2015-04-01 21:21:32 +0530
+Processing by SubscriptionsController#plans as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mSubscription Load (0.2ms)[0m  SELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`user_id` = 1 LIMIT 1
+  [1m[36mPlan Load (0.1ms)[0m  [1mSELECT `plans`.* FROM `plans`[0m
+  [1m[35mPlan Load (0.1ms)[0m  SELECT  `plans`.* FROM `plans` WHERE `plans`.`id` = 4 LIMIT 1
+  Rendered subscriptions/plans.html.erb within layouts/application (2.1ms)
+  Rendered layouts/_navigation_links.html.erb (3.2ms)
+  Rendered layouts/_navigation.html.erb (4.2ms)
+  Rendered layouts/_messages.html.erb (0.2ms)
+Completed 200 OK in 733ms (Views: 730.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/plan/7/reactivate" for 127.0.0.1 at 2015-04-01 21:21:34 +0530
+Processing by SubscriptionsController#reactivate as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mSubscription Load (0.3ms)[0m  SELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`id` = 7 LIMIT 1
+Completed 500 Internal Server Error in 4ms
+
+NameError - undefined local variable or method `flash' for #<Subscription:0x00000005ec3ad8>:
+  activemodel (4.2.0) lib/active_model/attribute_methods.rb:433:in `method_missing'
+   () home/kannan/Desktop/test/recruit-test/recruit-test/app/models/subscription.rb:17:in `reactivate'
+   () home/kannan/Desktop/test/recruit-test/recruit-test/app/controllers/subscriptions_controller.rb:30:in `reactivate'
+  actionpack (4.2.0) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (4.2.0) lib/abstract_controller/base.rb:198:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.2.0) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:117:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:169:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:151:in `block in halting_and_conditional'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:234:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:234:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:169:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:169:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:169:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:92:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_process_action_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.2.0) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.0) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.2.0) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.2.0) lib/abstract_controller/base.rb:137:in `process'
+  actionview (4.2.0) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.0) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.2.0) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.0) lib/action_controller/metal.rb:236:in `block in action'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:73:in `dispatch'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:42:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:802:in `call'
+  warden (1.2.3) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.3) lib/warden/manager.rb:34:in `call'
+  rack (1.6.0) lib/rack/etag.rb:24:in `call'
+  rack (1.6.0) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.0) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:647:in `call'
+  activerecord (4.2.0) lib/active_record/migration.rb:378:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.1.2) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.1.0) lib/quiet_assets.rb:27:in `call_with_quiet_assets'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+   () home/kannan/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+   () home/kannan/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+   () home/kannan/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+
+Started GET "/plan/7/reactivate" for 127.0.0.1 at 2015-04-01 21:21:34 +0530
+Processing by SubscriptionsController#reactivate as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mSubscription Load (0.2ms)[0m  SELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`id` = 7 LIMIT 1
+Completed 500 Internal Server Error in 4ms
+
+NameError - undefined local variable or method `flash' for #<Subscription:0x000000061a9a68>:
+  activemodel (4.2.0) lib/active_model/attribute_methods.rb:433:in `method_missing'
+   () home/kannan/Desktop/test/recruit-test/recruit-test/app/models/subscription.rb:17:in `reactivate'
+   () home/kannan/Desktop/test/recruit-test/recruit-test/app/controllers/subscriptions_controller.rb:30:in `reactivate'
+  actionpack (4.2.0) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (4.2.0) lib/abstract_controller/base.rb:198:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.2.0) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:117:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:169:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:151:in `block in halting_and_conditional'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:234:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:234:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:169:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:169:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:169:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:92:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_process_action_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.2.0) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.0) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.2.0) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.2.0) lib/abstract_controller/base.rb:137:in `process'
+  actionview (4.2.0) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.0) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.2.0) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.0) lib/action_controller/metal.rb:236:in `block in action'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:73:in `dispatch'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:42:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:802:in `call'
+  warden (1.2.3) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.3) lib/warden/manager.rb:34:in `call'
+  rack (1.6.0) lib/rack/etag.rb:24:in `call'
+  rack (1.6.0) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.0) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:647:in `call'
+  activerecord (4.2.0) lib/active_record/migration.rb:378:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.1.2) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.1.0) lib/quiet_assets.rb:27:in `call_with_quiet_assets'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+   () home/kannan/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+   () home/kannan/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+   () home/kannan/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+
+Started POST "/__better_errors/5c879cb80bf32435/variables" for 127.0.0.1 at 2015-04-01 21:21:34 +0530
+
+
+Started GET "/plans" for 127.0.0.1 at 2015-04-01 21:22:23 +0530
+Processing by SubscriptionsController#plans as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mSubscription Load (0.1ms)[0m  SELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`user_id` = 1 LIMIT 1
+  [1m[36mPlan Load (0.2ms)[0m  [1mSELECT `plans`.* FROM `plans`[0m
+  [1m[35mPlan Load (0.2ms)[0m  SELECT  `plans`.* FROM `plans` WHERE `plans`.`id` = 4 LIMIT 1
+  Rendered subscriptions/plans.html.erb within layouts/application (11.5ms)
+  Rendered layouts/_navigation_links.html.erb (2.6ms)
+  Rendered layouts/_navigation.html.erb (3.2ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 724ms (Views: 684.2ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/plan/7/reactivate" for 127.0.0.1 at 2015-04-01 21:22:26 +0530
+Processing by SubscriptionsController#reactivate as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mSubscription Load (0.1ms)[0m  SELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`id` = 7 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE `subscriptions` SET `deactivation_status` = 0, `deactivated_at` = NULL, `updated_at` = '2015-04-01 15:52:26.603023' WHERE `subscriptions`.`id` = 7
+  [1m[36m (127.2ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/plans
+Completed 302 Found in 133ms (ActiveRecord: 127.8ms)
+
+
+Started GET "/plans" for 127.0.0.1 at 2015-04-01 21:22:26 +0530
+Processing by SubscriptionsController#plans as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mSubscription Load (0.2ms)[0m  [1mSELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`user_id` = 1 LIMIT 1[0m
+  [1m[35mPlan Load (0.1ms)[0m  SELECT `plans`.* FROM `plans`
+  [1m[36mPlan Load (0.1ms)[0m  [1mSELECT  `plans`.* FROM `plans` WHERE `plans`.`id` = 4 LIMIT 1[0m
+  Rendered subscriptions/plans.html.erb within layouts/application (2.2ms)
+  Rendered layouts/_navigation_links.html.erb (2.7ms)
+  Rendered layouts/_navigation.html.erb (3.5ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 751ms (Views: 748.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/plan/7/deactivate" for 127.0.0.1 at 2015-04-01 21:22:28 +0530
+Processing by SubscriptionsController#deactivate as HTML
+  Parameters: {"id"=>"7"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mSubscription Load (0.6ms)[0m  [1mSELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`id` = 7 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.7ms)[0m  [1mUPDATE `subscriptions` SET `deactivation_status` = 1, `deactivated_at` = '2015-04-01 15:52:28.987113', `updated_at` = '2015-04-01 15:52:28.989603' WHERE `subscriptions`.`id` = 7[0m
+  [1m[35m (91.8ms)[0m  COMMIT
+Redirected to http://localhost:3000/plans
+Completed 302 Found in 104ms (ActiveRecord: 93.6ms)
+
+
+Started GET "/plans" for 127.0.0.1 at 2015-04-01 21:22:29 +0530
+Processing by SubscriptionsController#plans as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mSubscription Load (0.2ms)[0m  SELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`user_id` = 1 LIMIT 1
+  [1m[36mPlan Load (0.1ms)[0m  [1mSELECT `plans`.* FROM `plans`[0m
+  [1m[35mPlan Load (0.1ms)[0m  SELECT  `plans`.* FROM `plans` WHERE `plans`.`id` = 4 LIMIT 1
+  Rendered subscriptions/plans.html.erb within layouts/application (2.1ms)
+  Rendered layouts/_navigation_links.html.erb (2.9ms)
+  Rendered layouts/_navigation.html.erb (3.7ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 683ms (Views: 679.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/plan/7/reactivate" for 127.0.0.1 at 2015-04-01 21:22:30 +0530
+Processing by SubscriptionsController#reactivate as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mSubscription Load (0.3ms)[0m  SELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`id` = 7 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE `subscriptions` SET `deactivation_status` = 0, `deactivated_at` = NULL, `updated_at` = '2015-04-01 15:52:30.821026' WHERE `subscriptions`.`id` = 7
+  [1m[36m (173.9ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/plans
+Completed 302 Found in 181ms (ActiveRecord: 174.6ms)
+
+
+Started GET "/plans" for 127.0.0.1 at 2015-04-01 21:22:31 +0530
+Processing by SubscriptionsController#plans as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mSubscription Load (0.2ms)[0m  [1mSELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`user_id` = 1 LIMIT 1[0m
+  [1m[35mPlan Load (0.1ms)[0m  SELECT `plans`.* FROM `plans`
+  [1m[36mPlan Load (0.1ms)[0m  [1mSELECT  `plans`.* FROM `plans` WHERE `plans`.`id` = 4 LIMIT 1[0m
+  Rendered subscriptions/plans.html.erb within layouts/application (2.6ms)
+  Rendered layouts/_navigation_links.html.erb (3.0ms)
+  Rendered layouts/_navigation.html.erb (3.9ms)
+  Rendered layouts/_messages.html.erb (0.2ms)
+Completed 200 OK in 735ms (Views: 731.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/plan/7/deactivate" for 127.0.0.1 at 2015-04-01 21:22:32 +0530
+Processing by SubscriptionsController#deactivate as HTML
+  Parameters: {"id"=>"7"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mSubscription Load (0.2ms)[0m  [1mSELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`id` = 7 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE `subscriptions` SET `deactivation_status` = 1, `deactivated_at` = '2015-04-01 15:52:32.850027', `updated_at` = '2015-04-01 15:52:32.850963' WHERE `subscriptions`.`id` = 7[0m
+  [1m[35m (100.8ms)[0m  COMMIT
+Redirected to http://localhost:3000/plans
+Completed 302 Found in 110ms (ActiveRecord: 101.5ms)
+
+
+Started GET "/plans" for 127.0.0.1 at 2015-04-01 21:22:32 +0530
+Processing by SubscriptionsController#plans as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mSubscription Load (0.2ms)[0m  SELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`user_id` = 1 LIMIT 1
+  [1m[36mPlan Load (0.1ms)[0m  [1mSELECT `plans`.* FROM `plans`[0m
+  [1m[35mPlan Load (0.1ms)[0m  SELECT  `plans`.* FROM `plans` WHERE `plans`.`id` = 4 LIMIT 1
+  Rendered subscriptions/plans.html.erb within layouts/application (3.6ms)
+  Rendered layouts/_navigation_links.html.erb (2.7ms)
+  Rendered layouts/_navigation.html.erb (3.5ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 740ms (Views: 736.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/plan/7/reactivate" for 127.0.0.1 at 2015-04-01 21:22:34 +0530
+Processing by SubscriptionsController#reactivate as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mSubscription Load (0.2ms)[0m  SELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`id` = 7 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE `subscriptions` SET `deactivation_status` = 0, `deactivated_at` = NULL, `updated_at` = '2015-04-01 15:52:34.961099' WHERE `subscriptions`.`id` = 7
+  [1m[36m (122.0ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/plans
+Completed 302 Found in 128ms (ActiveRecord: 122.7ms)
+
+
+Started GET "/plans" for 127.0.0.1 at 2015-04-01 21:22:35 +0530
+Processing by SubscriptionsController#plans as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mSubscription Load (0.2ms)[0m  [1mSELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`user_id` = 1 LIMIT 1[0m
+  [1m[35mPlan Load (0.2ms)[0m  SELECT `plans`.* FROM `plans`
+  [1m[36mPlan Load (0.1ms)[0m  [1mSELECT  `plans`.* FROM `plans` WHERE `plans`.`id` = 4 LIMIT 1[0m
+  Rendered subscriptions/plans.html.erb within layouts/application (2.3ms)
+  Rendered layouts/_navigation_links.html.erb (2.6ms)
+  Rendered layouts/_navigation.html.erb (3.4ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 684ms (Views: 680.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/plans" for 127.0.0.1 at 2015-04-01 21:22:39 +0530
+Processing by SubscriptionsController#plans as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mSubscription Load (0.2ms)[0m  [1mSELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`user_id` = 1 LIMIT 1[0m
+  [1m[35mPlan Load (0.2ms)[0m  SELECT `plans`.* FROM `plans`
+  [1m[36mPlan Load (0.2ms)[0m  [1mSELECT  `plans`.* FROM `plans` WHERE `plans`.`id` = 4 LIMIT 1[0m
+  Rendered subscriptions/plans.html.erb within layouts/application (3.9ms)
+  Rendered layouts/_navigation_links.html.erb (2.8ms)
+  Rendered layouts/_navigation.html.erb (3.4ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 783ms (Views: 778.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/plan/7/deactivate" for 127.0.0.1 at 2015-04-01 21:22:42 +0530
+Processing by SubscriptionsController#deactivate as HTML
+  Parameters: {"id"=>"7"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mSubscription Load (0.2ms)[0m  [1mSELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`id` = 7 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE `subscriptions` SET `deactivation_status` = 1, `deactivated_at` = '2015-04-01 15:52:42.533636', `updated_at` = '2015-04-01 15:52:42.534576' WHERE `subscriptions`.`id` = 7[0m
+  [1m[35m (96.5ms)[0m  COMMIT
+Redirected to http://localhost:3000/plans
+Completed 302 Found in 102ms (ActiveRecord: 97.2ms)
+
+
+Started GET "/plans" for 127.0.0.1 at 2015-04-01 21:22:42 +0530
+Processing by SubscriptionsController#plans as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mSubscription Load (0.3ms)[0m  SELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`user_id` = 1 LIMIT 1
+  [1m[36mPlan Load (0.1ms)[0m  [1mSELECT `plans`.* FROM `plans`[0m
+  [1m[35mPlan Load (0.1ms)[0m  SELECT  `plans`.* FROM `plans` WHERE `plans`.`id` = 4 LIMIT 1
+  Rendered subscriptions/plans.html.erb within layouts/application (2.2ms)
+  Rendered layouts/_navigation_links.html.erb (2.8ms)
+  Rendered layouts/_navigation.html.erb (3.6ms)
+  Rendered layouts/_messages.html.erb (0.2ms)
+Completed 200 OK in 774ms (Views: 770.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/plan/7/reactivate" for 127.0.0.1 at 2015-04-01 21:22:45 +0530
+Processing by SubscriptionsController#reactivate as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mSubscription Load (0.5ms)[0m  SELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`id` = 7 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE `subscriptions` SET `deactivation_status` = 0, `deactivated_at` = NULL, `updated_at` = '2015-04-01 15:52:45.918577' WHERE `subscriptions`.`id` = 7
+  [1m[36m (123.2ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/plans
+Completed 302 Found in 136ms (ActiveRecord: 124.5ms)
+
+
+Started GET "/plans" for 127.0.0.1 at 2015-04-01 21:22:46 +0530
+Processing by SubscriptionsController#plans as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mSubscription Load (0.6ms)[0m  [1mSELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`user_id` = 1 LIMIT 1[0m
+  [1m[35mPlan Load (0.2ms)[0m  SELECT `plans`.* FROM `plans`
+  [1m[36mPlan Load (0.1ms)[0m  [1mSELECT  `plans`.* FROM `plans` WHERE `plans`.`id` = 4 LIMIT 1[0m
+  Rendered subscriptions/plans.html.erb within layouts/application (3.1ms)
+  Rendered layouts/_navigation_links.html.erb (3.4ms)
+  Rendered layouts/_navigation.html.erb (4.4ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 895ms (Views: 887.7ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/plan/7/deactivate" for 127.0.0.1 at 2015-04-01 21:22:52 +0530
+Processing by SubscriptionsController#deactivate as HTML
+  Parameters: {"id"=>"7"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mSubscription Load (0.2ms)[0m  [1mSELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`id` = 7 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE `subscriptions` SET `deactivation_status` = 1, `deactivated_at` = '2015-04-01 15:52:52.467692', `updated_at` = '2015-04-01 15:52:52.468543' WHERE `subscriptions`.`id` = 7[0m
+  [1m[35m (66.9ms)[0m  COMMIT
+Redirected to http://localhost:3000/plans
+Completed 302 Found in 73ms (ActiveRecord: 67.5ms)
+
+
+Started GET "/plans" for 127.0.0.1 at 2015-04-01 21:22:52 +0530
+Processing by SubscriptionsController#plans as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mSubscription Load (0.2ms)[0m  SELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`user_id` = 1 LIMIT 1
+  [1m[36mPlan Load (0.2ms)[0m  [1mSELECT `plans`.* FROM `plans`[0m
+  [1m[35mPlan Load (0.1ms)[0m  SELECT  `plans`.* FROM `plans` WHERE `plans`.`id` = 4 LIMIT 1
+  Rendered subscriptions/plans.html.erb within layouts/application (2.3ms)
+  Rendered layouts/_navigation_links.html.erb (2.7ms)
+  Rendered layouts/_navigation.html.erb (3.5ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 805ms (Views: 801.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/plans" for 127.0.0.1 at 2015-04-01 21:24:55 +0530
+Processing by SubscriptionsController#plans as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mSubscription Load (0.2ms)[0m  SELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`user_id` = 1 LIMIT 1
+  [1m[36mPlan Load (0.2ms)[0m  [1mSELECT `plans`.* FROM `plans`[0m
+  [1m[35mPlan Load (0.2ms)[0m  SELECT  `plans`.* FROM `plans` WHERE `plans`.`id` = 4 LIMIT 1
+  Rendered subscriptions/plans.html.erb within layouts/application (12.2ms)
+  Rendered layouts/_navigation_links.html.erb (2.7ms)
+  Rendered layouts/_navigation.html.erb (3.4ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 725ms (Views: 685.5ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/plan/7/reactivate" for 127.0.0.1 at 2015-04-01 21:24:59 +0530
+Processing by SubscriptionsController#reactivate as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mSubscription Load (0.3ms)[0m  SELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`id` = 7 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE `subscriptions` SET `deactivation_status` = 0, `deactivated_at` = NULL, `updated_at` = '2015-04-01 15:54:59.028828' WHERE `subscriptions`.`id` = 7
+  [1m[36m (120.8ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/plans
+Completed 302 Found in 130ms (ActiveRecord: 121.7ms)
+
+
+Started GET "/plans" for 127.0.0.1 at 2015-04-01 21:24:59 +0530
+Processing by SubscriptionsController#plans as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mSubscription Load (0.3ms)[0m  [1mSELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`user_id` = 1 LIMIT 1[0m
+  [1m[35mPlan Load (0.2ms)[0m  SELECT `plans`.* FROM `plans`
+  [1m[36mPlan Load (0.1ms)[0m  [1mSELECT  `plans`.* FROM `plans` WHERE `plans`.`id` = 4 LIMIT 1[0m
+  Rendered subscriptions/plans.html.erb within layouts/application (2.3ms)
+  Rendered layouts/_navigation_links.html.erb (3.9ms)
+  Rendered layouts/_navigation.html.erb (5.1ms)
+  Rendered layouts/_messages.html.erb (0.4ms)
+Completed 200 OK in 778ms (Views: 775.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/plan/7/deactivate" for 127.0.0.1 at 2015-04-01 21:25:01 +0530
+Processing by SubscriptionsController#deactivate as HTML
+  Parameters: {"id"=>"7"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mSubscription Load (0.3ms)[0m  [1mSELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`id` = 7 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE `subscriptions` SET `deactivation_status` = 1, `deactivated_at` = '2015-04-01 15:55:01.876181', `updated_at` = '2015-04-01 15:55:01.877716' WHERE `subscriptions`.`id` = 7[0m
+  [1m[35m (236.2ms)[0m  COMMIT
+Redirected to http://localhost:3000/plans
+Completed 302 Found in 245ms (ActiveRecord: 237.0ms)
+
+
+Started GET "/plans" for 127.0.0.1 at 2015-04-01 21:25:02 +0530
+Processing by SubscriptionsController#plans as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mSubscription Load (0.3ms)[0m  SELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`user_id` = 1 LIMIT 1
+  [1m[36mPlan Load (0.1ms)[0m  [1mSELECT `plans`.* FROM `plans`[0m
+  [1m[35mPlan Load (0.1ms)[0m  SELECT  `plans`.* FROM `plans` WHERE `plans`.`id` = 4 LIMIT 1
+  Rendered subscriptions/plans.html.erb within layouts/application (2.4ms)
+  Rendered layouts/_navigation_links.html.erb (2.8ms)
+  Rendered layouts/_navigation.html.erb (3.7ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 679ms (Views: 676.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/plan/7/reactivate" for 127.0.0.1 at 2015-04-01 21:25:03 +0530
+Processing by SubscriptionsController#reactivate as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mSubscription Load (0.2ms)[0m  SELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`id` = 7 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE `subscriptions` SET `deactivation_status` = 0, `deactivated_at` = NULL, `updated_at` = '2015-04-01 15:55:03.913481' WHERE `subscriptions`.`id` = 7
+  [1m[36m (79.8ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/plans
+Completed 302 Found in 86ms (ActiveRecord: 80.5ms)
+
+
+Started GET "/plans" for 127.0.0.1 at 2015-04-01 21:25:04 +0530
+Processing by SubscriptionsController#plans as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mSubscription Load (0.2ms)[0m  [1mSELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`user_id` = 1 LIMIT 1[0m
+  [1m[35mPlan Load (0.1ms)[0m  SELECT `plans`.* FROM `plans`
+  [1m[36mPlan Load (0.1ms)[0m  [1mSELECT  `plans`.* FROM `plans` WHERE `plans`.`id` = 4 LIMIT 1[0m
+  Rendered subscriptions/plans.html.erb within layouts/application (2.2ms)
+  Rendered layouts/_navigation_links.html.erb (2.5ms)
+  Rendered layouts/_navigation.html.erb (3.3ms)
+  Rendered layouts/_messages.html.erb (0.2ms)
+Completed 200 OK in 692ms (Views: 688.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/plan/7/deactivate" for 127.0.0.1 at 2015-04-01 21:25:05 +0530
+Processing by SubscriptionsController#deactivate as HTML
+  Parameters: {"id"=>"7"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mSubscription Load (0.2ms)[0m  [1mSELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`id` = 7 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE `subscriptions` SET `deactivation_status` = 1, `deactivated_at` = '2015-04-01 15:55:05.931897', `updated_at` = '2015-04-01 15:55:05.932844' WHERE `subscriptions`.`id` = 7[0m
+  [1m[35m (139.6ms)[0m  COMMIT
+Redirected to http://localhost:3000/plans
+Completed 302 Found in 146ms (ActiveRecord: 140.2ms)
+
+
+Started GET "/plans" for 127.0.0.1 at 2015-04-01 21:25:06 +0530
+Processing by SubscriptionsController#plans as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mSubscription Load (0.2ms)[0m  SELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`user_id` = 1 LIMIT 1
+  [1m[36mPlan Load (0.1ms)[0m  [1mSELECT `plans`.* FROM `plans`[0m
+  [1m[35mPlan Load (0.1ms)[0m  SELECT  `plans`.* FROM `plans` WHERE `plans`.`id` = 4 LIMIT 1
+  Rendered subscriptions/plans.html.erb within layouts/application (2.3ms)
+  Rendered layouts/_navigation_links.html.erb (2.7ms)
+  Rendered layouts/_navigation.html.erb (3.5ms)
+  Rendered layouts/_messages.html.erb (0.2ms)
+Completed 200 OK in 678ms (Views: 675.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/plan/7/reactivate" for 127.0.0.1 at 2015-04-01 21:25:07 +0530
+Processing by SubscriptionsController#reactivate as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mSubscription Load (0.2ms)[0m  SELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`id` = 7 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE `subscriptions` SET `deactivation_status` = 0, `deactivated_at` = NULL, `updated_at` = '2015-04-01 15:55:07.527973' WHERE `subscriptions`.`id` = 7
+  [1m[36m (52.4ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/plans
+Completed 302 Found in 60ms (ActiveRecord: 53.0ms)
+
+
+Started GET "/plans" for 127.0.0.1 at 2015-04-01 21:25:07 +0530
+Processing by SubscriptionsController#plans as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mSubscription Load (0.3ms)[0m  [1mSELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`user_id` = 1 LIMIT 1[0m
+  [1m[35mPlan Load (0.2ms)[0m  SELECT `plans`.* FROM `plans`
+  [1m[36mPlan Load (0.1ms)[0m  [1mSELECT  `plans`.* FROM `plans` WHERE `plans`.`id` = 4 LIMIT 1[0m
+  Rendered subscriptions/plans.html.erb within layouts/application (2.2ms)
+  Rendered layouts/_navigation_links.html.erb (2.9ms)
+  Rendered layouts/_navigation.html.erb (3.7ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 691ms (Views: 687.6ms | ActiveRecord: 0.7ms)
+  [1m[35mSubscription Load (0.4ms)[0m  SELECT  `subscriptions`.* FROM `subscriptions`  ORDER BY `subscriptions`.`id` ASC LIMIT 1
+
+
+Started GET "/plans" for 127.0.0.1 at 2015-04-01 21:45:34 +0530
+Processing by SubscriptionsController#plans as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mSubscription Load (0.2ms)[0m  [1mSELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`user_id` = 1 LIMIT 1[0m
+  [1m[35mPlan Load (0.2ms)[0m  SELECT `plans`.* FROM `plans`
+  [1m[36mPlan Load (0.1ms)[0m  [1mSELECT  `plans`.* FROM `plans` WHERE `plans`.`id` = 4 LIMIT 1[0m
+  Rendered subscriptions/plans.html.erb within layouts/application (12.6ms)
+  Rendered layouts/_navigation_links.html.erb (2.7ms)
+  Rendered layouts/_navigation.html.erb (3.4ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 721ms (Views: 682.4ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/plan/7/unsubscribe" for 127.0.0.1 at 2015-04-01 21:45:39 +0530
+Processing by SubscriptionsController#destroy as HTML
+  Parameters: {"id"=>"7"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mSubscription Load (0.3ms)[0m  [1mSELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`id` = 7 LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM `subscriptions` WHERE `subscriptions`.`id` = 7[0m
+  [1m[35m (51.7ms)[0m  COMMIT
+Redirected to http://localhost:3000/plans
+Completed 302 Found in 3728ms (ActiveRecord: 52.7ms)
+
+
+Started GET "/plans" for 127.0.0.1 at 2015-04-01 21:45:43 +0530
+Processing by SubscriptionsController#plans as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mSubscription Load (0.2ms)[0m  SELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`user_id` = 1 LIMIT 1
+  [1m[36mPlan Load (0.2ms)[0m  [1mSELECT `plans`.* FROM `plans`[0m
+  Rendered subscriptions/plans.html.erb within layouts/application (1.3ms)
+  Rendered layouts/_navigation_links.html.erb (2.6ms)
+  Rendered layouts/_navigation.html.erb (3.4ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 782ms (Views: 779.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/plan/4/subscribe" for 127.0.0.1 at 2015-04-01 21:45:51 +0530
+Processing by SubscriptionsController#new as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mPlan Load (0.1ms)[0m  SELECT  `plans`.* FROM `plans` WHERE `plans`.`id` = 4 LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered subscriptions/new.html.erb within layouts/application (3.5ms)
+  Rendered layouts/_navigation_links.html.erb (2.8ms)
+  Rendered layouts/_navigation.html.erb (3.6ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 746ms (Views: 743.0ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/api/subscriptions/create.json" for 127.0.0.1 at 2015-04-01 21:46:13 +0530
+Processing by Api::SubscriptionsController#create as JSON
+  Parameters: {"stripe_params"=>{"token"=>"tok_15moVjH4XkuarA8OJWfDVjWi", "amount"=>"1000", "email"=>"kannanr@7nodes.com", "desc"=>"Avid Life Payment", "currency"=>"USD", "stripe_plan"=>"1", "card"=>"card_15moVjH4XkuarA8O5Hr8Vb2Z", "target_plan"=>"4"}}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `subscriptions` (`stripe_card_id`, `stripe_customer_id`, `stripe_charge_id`, `stripe_payment_email`, `user_id`, `plan_id`, `created_at`, `updated_at`) VALUES ('card_15moVjH4XkuarA8O5Hr8Vb2Z', 'cus_5ym3p4uYEb7q8W', 'ch_15moVqH4XkuarA8OvVKVMYU0', 'kannanr@7nodes.com', 1, 4, '2015-04-01 16:16:18.821139', '2015-04-01 16:16:18.821139')
+  [1m[36m (100.0ms)[0m  [1mCOMMIT[0m
+  Rendered api/subscriptions/create.json.jbuilder (0.1ms)
+Completed 200 OK in 5000ms (Views: 5.7ms | ActiveRecord: 100.7ms)
+
+
+Started GET "/plans" for 127.0.0.1 at 2015-04-01 21:46:18 +0530
+Processing by SubscriptionsController#plans as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mSubscription Load (0.3ms)[0m  [1mSELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`user_id` = 1 LIMIT 1[0m
+  [1m[35mPlan Load (0.3ms)[0m  SELECT `plans`.* FROM `plans`
+  [1m[36mPlan Load (0.2ms)[0m  [1mSELECT  `plans`.* FROM `plans` WHERE `plans`.`id` = 4 LIMIT 1[0m
+  Rendered subscriptions/plans.html.erb within layouts/application (5.0ms)
+  Rendered layouts/_navigation_links.html.erb (2.5ms)
+  Rendered layouts/_navigation.html.erb (3.2ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 794ms (Views: 790.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/plan/5/upgrade" for 127.0.0.1 at 2015-04-01 21:46:35 +0530
+Processing by SubscriptionsController#upgrade as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mPlan Load (0.3ms)[0m  SELECT  `plans`.* FROM `plans` WHERE `plans`.`id` = 5 LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `plans`.* FROM `plans` WHERE `plans`.`id` = 5 LIMIT 1  [["id", "5"]]
+  [1m[36mSubscription Load (0.1ms)[0m  [1mSELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`user_id` = 1 LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mDELETE FROM `subscriptions` WHERE `subscriptions`.`id` = 8[0m
+  [1m[35m (56.4ms)[0m  COMMIT
+Redirected to http://localhost:3000/plan/5/subscribe
+Completed 302 Found in 3687ms (ActiveRecord: 57.6ms)
+
+
+Started GET "/plan/5/subscribe" for 127.0.0.1 at 2015-04-01 21:46:38 +0530
+Processing by SubscriptionsController#new as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mPlan Load (0.3ms)[0m  [1mSELECT  `plans`.* FROM `plans` WHERE `plans`.`id` = 5 LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered subscriptions/new.html.erb within layouts/application (6.6ms)
+  Rendered layouts/_navigation_links.html.erb (2.8ms)
+  Rendered layouts/_navigation.html.erb (3.6ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 700ms (Views: 693.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/plans" for 127.0.0.1 at 2015-04-01 21:46:44 +0530
+Processing by SubscriptionsController#plans as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mSubscription Load (0.2ms)[0m  SELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`user_id` = 1 LIMIT 1
+  [1m[36mPlan Load (0.1ms)[0m  [1mSELECT `plans`.* FROM `plans`[0m
+  Rendered subscriptions/plans.html.erb within layouts/application (1.2ms)
+  Rendered layouts/_navigation_links.html.erb (2.9ms)
+  Rendered layouts/_navigation.html.erb (3.7ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 714ms (Views: 710.3ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/api/subscriptions/create.json" for 127.0.0.1 at 2015-04-01 21:47:23 +0530
+Processing by Api::SubscriptionsController#create as JSON
+  Parameters: {"stripe_params"=>{"token"=>"tok_15moWqH4XkuarA8O16xiSX9F", "amount"=>"3000", "email"=>"kannanr@7nodes.com", "desc"=>"Avid Life Payment", "currency"=>"USD", "stripe_plan"=>"2", "card"=>"card_15moWqH4XkuarA8Ou0e0sBqJ", "target_plan"=>"5"}}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `subscriptions` (`stripe_card_id`, `stripe_customer_id`, `stripe_charge_id`, `stripe_payment_email`, `user_id`, `plan_id`, `created_at`, `updated_at`) VALUES ('card_15moWqH4XkuarA8Ou0e0sBqJ', 'cus_5ym5LH9dsBUAoz', 'ch_15moWxH4XkuarA8OTC5Lt1QG', 'kannanr@7nodes.com', 1, 5, '2015-04-01 16:17:28.090324', '2015-04-01 16:17:28.090324')
+  [1m[36m (88.5ms)[0m  [1mCOMMIT[0m
+  Rendered api/subscriptions/create.json.jbuilder (0.3ms)
+Completed 200 OK in 5156ms (Views: 5.2ms | ActiveRecord: 89.1ms)
+
+
+Started GET "/plans" for 127.0.0.1 at 2015-04-01 21:47:28 +0530
+Processing by SubscriptionsController#plans as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mSubscription Load (0.4ms)[0m  [1mSELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`user_id` = 1 LIMIT 1[0m
+  [1m[35mPlan Load (0.2ms)[0m  SELECT `plans`.* FROM `plans`
+  [1m[36mPlan Load (0.2ms)[0m  [1mSELECT  `plans`.* FROM `plans` WHERE `plans`.`id` = 5 LIMIT 1[0m
+  Rendered subscriptions/plans.html.erb within layouts/application (4.7ms)
+  Rendered layouts/_navigation_links.html.erb (2.8ms)
+  Rendered layouts/_navigation.html.erb (3.5ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 817ms (Views: 811.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/plan/9/deactivate" for 127.0.0.1 at 2015-04-01 21:47:47 +0530
+Processing by SubscriptionsController#deactivate as HTML
+  Parameters: {"id"=>"9"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mSubscription Load (0.3ms)[0m  [1mSELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`id` = 9 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE `subscriptions` SET `deactivation_status` = 1, `deactivated_at` = '2015-04-01 16:17:47.432203', `updated_at` = '2015-04-01 16:17:47.433147' WHERE `subscriptions`.`id` = 9[0m
+  [1m[35m (59.1ms)[0m  COMMIT
+Redirected to http://localhost:3000/plans
+Completed 302 Found in 65ms (ActiveRecord: 59.8ms)
+
+
+Started GET "/plans" for 127.0.0.1 at 2015-04-01 21:47:47 +0530
+Processing by SubscriptionsController#plans as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mSubscription Load (0.3ms)[0m  SELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`user_id` = 1 LIMIT 1
+  [1m[36mPlan Load (0.1ms)[0m  [1mSELECT `plans`.* FROM `plans`[0m
+  [1m[35mPlan Load (0.1ms)[0m  SELECT  `plans`.* FROM `plans` WHERE `plans`.`id` = 5 LIMIT 1
+  Rendered subscriptions/plans.html.erb within layouts/application (2.2ms)
+  Rendered layouts/_navigation_links.html.erb (2.9ms)
+  Rendered layouts/_navigation.html.erb (3.8ms)
+  Rendered layouts/_messages.html.erb (0.2ms)
+Completed 200 OK in 673ms (Views: 670.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/plan/9/reactivate" for 127.0.0.1 at 2015-04-01 21:47:50 +0530
+Processing by SubscriptionsController#reactivate as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mSubscription Load (0.5ms)[0m  SELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`id` = 9 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  UPDATE `subscriptions` SET `deactivation_status` = 0, `deactivated_at` = NULL, `updated_at` = '2015-04-01 16:17:50.254263' WHERE `subscriptions`.`id` = 9
+  [1m[36m (91.6ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/plans
+Completed 302 Found in 103ms (ActiveRecord: 93.0ms)
+
+
+Started GET "/plans" for 127.0.0.1 at 2015-04-01 21:47:50 +0530
+Processing by SubscriptionsController#plans as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mSubscription Load (0.2ms)[0m  [1mSELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`user_id` = 1 LIMIT 1[0m
+  [1m[35mPlan Load (0.1ms)[0m  SELECT `plans`.* FROM `plans`
+  [1m[36mPlan Load (0.1ms)[0m  [1mSELECT  `plans`.* FROM `plans` WHERE `plans`.`id` = 5 LIMIT 1[0m
+  Rendered subscriptions/plans.html.erb within layouts/application (2.2ms)
+  Rendered layouts/_navigation_links.html.erb (2.9ms)
+  Rendered layouts/_navigation.html.erb (3.7ms)
+  Rendered layouts/_messages.html.erb (0.2ms)
+Completed 200 OK in 747ms (Views: 744.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/plans" for 127.0.0.1 at 2015-04-01 21:50:24 +0530
+Processing by SubscriptionsController#plans as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mSubscription Load (0.1ms)[0m  [1mSELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`user_id` = 1 LIMIT 1[0m
+  [1m[35mPlan Load (0.2ms)[0m  SELECT `plans`.* FROM `plans`
+  [1m[36mPlan Load (0.2ms)[0m  [1mSELECT  `plans`.* FROM `plans` WHERE `plans`.`id` = 5 LIMIT 1[0m
+  Rendered subscriptions/plans.html.erb within layouts/application (80.0ms)
+  Rendered layouts/_navigation_links.html.erb (2.7ms)
+  Rendered layouts/_navigation.html.erb (3.4ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 817ms (Views: 775.3ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/plan/9/unsubscribe" for 127.0.0.1 at 2015-04-01 21:50:28 +0530
+Processing by SubscriptionsController#destroy as HTML
+  Parameters: {"id"=>"9"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mSubscription Load (0.6ms)[0m  [1mSELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`id` = 9 LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mDELETE FROM `subscriptions` WHERE `subscriptions`.`id` = 9[0m
+  [1m[35m (70.0ms)[0m  COMMIT
+Redirected to http://localhost:3000/plans
+Completed 302 Found in 3651ms (ActiveRecord: 71.6ms)
+
+
+Started GET "/plans" for 127.0.0.1 at 2015-04-01 21:50:31 +0530
+Processing by SubscriptionsController#plans as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mSubscription Load (0.2ms)[0m  SELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`user_id` = 1 LIMIT 1
+  [1m[36mPlan Load (0.2ms)[0m  [1mSELECT `plans`.* FROM `plans`[0m
+  Rendered subscriptions/plans.html.erb within layouts/application (1.4ms)
+  Rendered layouts/_navigation_links.html.erb (2.5ms)
+  Rendered layouts/_navigation.html.erb (3.3ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 672ms (Views: 668.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/plan/5/subscribe" for 127.0.0.1 at 2015-04-01 21:50:44 +0530
+Processing by SubscriptionsController#new as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mPlan Load (0.1ms)[0m  SELECT  `plans`.* FROM `plans` WHERE `plans`.`id` = 5 LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered subscriptions/new.html.erb within layouts/application (15.4ms)
+Completed 500 Internal Server Error in 85ms
+
+NoMethodError - undefined method `create_subscription_path' for #<#<Class:0x007ff7ac681450>:0x00000003fc8098>:
+   () home/kannan/Desktop/test/recruit-test/recruit-test/app/views/subscriptions/new.html.erb:2:in `_app_views_subscriptions_new_html_erb__3121303566385732133_70350863513300'
+  actionview (4.2.0) lib/action_view/template.rb:145:in `block in render'
+  activesupport (4.2.0) lib/active_support/notifications.rb:166:in `instrument'
+  actionview (4.2.0) lib/action_view/template.rb:333:in `instrument'
+  actionview (4.2.0) lib/action_view/template.rb:143:in `render'
+  actionview (4.2.0) lib/action_view/renderer/template_renderer.rb:54:in `block (2 levels) in render_template'
+  actionview (4.2.0) lib/action_view/renderer/abstract_renderer.rb:39:in `block in instrument'
+  activesupport (4.2.0) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.0) lib/active_support/notifications.rb:164:in `instrument'
+  actionview (4.2.0) lib/action_view/renderer/abstract_renderer.rb:39:in `instrument'
+  actionview (4.2.0) lib/action_view/renderer/template_renderer.rb:53:in `block in render_template'
+  actionview (4.2.0) lib/action_view/renderer/template_renderer.rb:61:in `render_with_layout'
+  actionview (4.2.0) lib/action_view/renderer/template_renderer.rb:52:in `render_template'
+  actionview (4.2.0) lib/action_view/renderer/template_renderer.rb:14:in `render'
+  actionview (4.2.0) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionview (4.2.0) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionview (4.2.0) lib/action_view/rendering.rb:100:in `_render_template'
+  actionpack (4.2.0) lib/action_controller/metal/streaming.rb:217:in `_render_template'
+  actionview (4.2.0) lib/action_view/rendering.rb:83:in `render_to_body'
+  actionpack (4.2.0) lib/action_controller/metal/rendering.rb:32:in `render_to_body'
+  actionpack (4.2.0) lib/action_controller/metal/renderers.rb:37:in `render_to_body'
+  actionpack (4.2.0) lib/abstract_controller/rendering.rb:25:in `render'
+  actionpack (4.2.0) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+  activesupport (4.2.0) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+   () home/kannan/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/benchmark.rb:296:in `realtime'
+  activesupport (4.2.0) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+  activerecord (4.2.0) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:40:in `render'
+  actionpack (4.2.0) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.2.0) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.2.0) lib/abstract_controller/base.rb:198:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.2.0) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:117:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:169:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:151:in `block in halting_and_conditional'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:234:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:234:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:169:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:169:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:169:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:92:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_process_action_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.2.0) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.0) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.2.0) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.2.0) lib/abstract_controller/base.rb:137:in `process'
+  actionview (4.2.0) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.0) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.2.0) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.0) lib/action_controller/metal.rb:236:in `block in action'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:73:in `dispatch'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:42:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:802:in `call'
+  warden (1.2.3) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.3) lib/warden/manager.rb:34:in `call'
+  rack (1.6.0) lib/rack/etag.rb:24:in `call'
+  rack (1.6.0) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.0) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:647:in `call'
+  activerecord (4.2.0) lib/active_record/migration.rb:378:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.1.2) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.1.0) lib/quiet_assets.rb:27:in `call_with_quiet_assets'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+   () home/kannan/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+   () home/kannan/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+   () home/kannan/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+
+Started GET "/plan/5/subscribe" for 127.0.0.1 at 2015-04-01 21:50:44 +0530
+Processing by SubscriptionsController#new as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mPlan Load (0.1ms)[0m  SELECT  `plans`.* FROM `plans` WHERE `plans`.`id` = 5 LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered subscriptions/new.html.erb within layouts/application (23.6ms)
+Completed 500 Internal Server Error in 28ms
+
+NoMethodError - undefined method `create_subscription_path' for #<#<Class:0x007ff7ac681450>:0x00000006020598>:
+   () home/kannan/Desktop/test/recruit-test/recruit-test/app/views/subscriptions/new.html.erb:2:in `_app_views_subscriptions_new_html_erb__3121303566385732133_50415900'
+  actionview (4.2.0) lib/action_view/template.rb:145:in `block in render'
+  activesupport (4.2.0) lib/active_support/notifications.rb:166:in `instrument'
+  actionview (4.2.0) lib/action_view/template.rb:333:in `instrument'
+  actionview (4.2.0) lib/action_view/template.rb:143:in `render'
+  actionview (4.2.0) lib/action_view/renderer/template_renderer.rb:54:in `block (2 levels) in render_template'
+  actionview (4.2.0) lib/action_view/renderer/abstract_renderer.rb:39:in `block in instrument'
+  activesupport (4.2.0) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.0) lib/active_support/notifications.rb:164:in `instrument'
+  actionview (4.2.0) lib/action_view/renderer/abstract_renderer.rb:39:in `instrument'
+  actionview (4.2.0) lib/action_view/renderer/template_renderer.rb:53:in `block in render_template'
+  actionview (4.2.0) lib/action_view/renderer/template_renderer.rb:61:in `render_with_layout'
+  actionview (4.2.0) lib/action_view/renderer/template_renderer.rb:52:in `render_template'
+  actionview (4.2.0) lib/action_view/renderer/template_renderer.rb:14:in `render'
+  actionview (4.2.0) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionview (4.2.0) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionview (4.2.0) lib/action_view/rendering.rb:100:in `_render_template'
+  actionpack (4.2.0) lib/action_controller/metal/streaming.rb:217:in `_render_template'
+  actionview (4.2.0) lib/action_view/rendering.rb:83:in `render_to_body'
+  actionpack (4.2.0) lib/action_controller/metal/rendering.rb:32:in `render_to_body'
+  actionpack (4.2.0) lib/action_controller/metal/renderers.rb:37:in `render_to_body'
+  actionpack (4.2.0) lib/abstract_controller/rendering.rb:25:in `render'
+  actionpack (4.2.0) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+  activesupport (4.2.0) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+   () home/kannan/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/benchmark.rb:296:in `realtime'
+  activesupport (4.2.0) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+  activerecord (4.2.0) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:40:in `render'
+  actionpack (4.2.0) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.2.0) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.2.0) lib/abstract_controller/base.rb:198:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.2.0) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:117:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:169:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:151:in `block in halting_and_conditional'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:234:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:234:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:169:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:169:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:169:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:92:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_process_action_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.2.0) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.0) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.2.0) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.2.0) lib/abstract_controller/base.rb:137:in `process'
+  actionview (4.2.0) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.0) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.2.0) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.0) lib/action_controller/metal.rb:236:in `block in action'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:73:in `dispatch'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:42:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:802:in `call'
+  warden (1.2.3) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.3) lib/warden/manager.rb:34:in `call'
+  rack (1.6.0) lib/rack/etag.rb:24:in `call'
+  rack (1.6.0) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.0) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:647:in `call'
+  activerecord (4.2.0) lib/active_record/migration.rb:378:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.1.2) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.1.0) lib/quiet_assets.rb:27:in `call_with_quiet_assets'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+   () home/kannan/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+   () home/kannan/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+   () home/kannan/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+
+Started POST "/__better_errors/cefb0bd6e0bd1339/variables" for 127.0.0.1 at 2015-04-01 21:50:45 +0530
+
+
+Started GET "/plans" for 127.0.0.1 at 2015-04-01 21:51:31 +0530
+Processing by SubscriptionsController#plans as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mSubscription Load (0.1ms)[0m  [1mSELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`user_id` = 1 LIMIT 1[0m
+  [1m[35mPlan Load (0.1ms)[0m  SELECT `plans`.* FROM `plans`
+  Rendered subscriptions/plans.html.erb within layouts/application (1.3ms)
+  Rendered layouts/_navigation_links.html.erb (3.3ms)
+  Rendered layouts/_navigation.html.erb (4.1ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 743ms (Views: 738.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/plan/5/subscribe" for 127.0.0.1 at 2015-04-01 21:51:34 +0530
+Processing by SubscriptionsController#new as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mPlan Load (0.1ms)[0m  [1mSELECT  `plans`.* FROM `plans` WHERE `plans`.`id` = 5 LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered subscriptions/new.html.erb within layouts/application (2.9ms)
+  Rendered layouts/_navigation_links.html.erb (2.8ms)
+  Rendered layouts/_navigation.html.erb (3.8ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 684ms (Views: 681.6ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/api/subscriptions/create.json" for 127.0.0.1 at 2015-04-01 21:51:58 +0530
+Processing by Api::SubscriptionsController#create as JSON
+  Parameters: {"stripe_params"=>{"token"=>"tok_15mobHH4XkuarA8OX9CcuBgU", "amount"=>"3000", "email"=>"kannanr@7nodes.com", "desc"=>"Avid Life Payment", "currency"=>"USD", "stripe_plan"=>"2", "card"=>"card_15mobHH4XkuarA8ONVpVT2HN", "target_plan"=>"5"}}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `subscriptions` (`stripe_card_id`, `stripe_customer_id`, `stripe_charge_id`, `stripe_payment_email`, `user_id`, `plan_id`, `created_at`, `updated_at`) VALUES ('card_15mobHH4XkuarA8ONVpVT2HN', 'cus_5ym9DGnIbDdQZa', 'ch_15mobOH4XkuarA8OW6cr9HaE', 'kannanr@7nodes.com', 1, 5, '2015-04-01 16:22:03.503843', '2015-04-01 16:22:03.503843')[0m
+  [1m[35m (143.4ms)[0m  COMMIT
+  Rendered api/subscriptions/create.json.jbuilder (0.1ms)
+Completed 200 OK in 5267ms (Views: 6.2ms | ActiveRecord: 144.1ms)
+
+
+Started GET "/plans" for 127.0.0.1 at 2015-04-01 21:52:03 +0530
+Processing by SubscriptionsController#plans as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mSubscription Load (0.9ms)[0m  SELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`user_id` = 1 LIMIT 1
+  [1m[36mPlan Load (0.4ms)[0m  [1mSELECT `plans`.* FROM `plans`[0m
+  [1m[35mPlan Load (0.3ms)[0m  SELECT  `plans`.* FROM `plans` WHERE `plans`.`id` = 5 LIMIT 1
+  Rendered subscriptions/plans.html.erb within layouts/application (7.7ms)
+  Rendered layouts/_navigation_links.html.erb (2.8ms)
+  Rendered layouts/_navigation.html.erb (3.6ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 810ms (Views: 801.0ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/plan/10/deactivate" for 127.0.0.1 at 2015-04-01 21:52:08 +0530
+Processing by SubscriptionsController#deactivate as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mSubscription Load (0.5ms)[0m  SELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`id` = 10 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE `subscriptions` SET `deactivation_status` = 1, `deactivated_at` = '2015-04-01 16:22:08.595682', `updated_at` = '2015-04-01 16:22:08.598153' WHERE `subscriptions`.`id` = 10
+  [1m[36m (79.8ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/plans
+Completed 302 Found in 89ms (ActiveRecord: 80.9ms)
+
+
+Started GET "/plans" for 127.0.0.1 at 2015-04-01 21:52:08 +0530
+Processing by SubscriptionsController#plans as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mSubscription Load (0.2ms)[0m  [1mSELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`user_id` = 1 LIMIT 1[0m
+  [1m[35mPlan Load (0.2ms)[0m  SELECT `plans`.* FROM `plans`
+  [1m[36mPlan Load (0.1ms)[0m  [1mSELECT  `plans`.* FROM `plans` WHERE `plans`.`id` = 5 LIMIT 1[0m
+  Rendered subscriptions/plans.html.erb within layouts/application (2.3ms)
+  Rendered layouts/_navigation_links.html.erb (2.6ms)
+  Rendered layouts/_navigation.html.erb (3.4ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 680ms (Views: 677.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/plan/10/reactivate" for 127.0.0.1 at 2015-04-01 21:52:10 +0530
+Processing by SubscriptionsController#reactivate as HTML
+  Parameters: {"id"=>"10"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mSubscription Load (0.2ms)[0m  [1mSELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`id` = 10 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE `subscriptions` SET `deactivation_status` = 0, `deactivated_at` = NULL, `updated_at` = '2015-04-01 16:22:10.601549' WHERE `subscriptions`.`id` = 10[0m
+  [1m[35m (96.6ms)[0m  COMMIT
+Redirected to http://localhost:3000/plans
+Completed 302 Found in 104ms (ActiveRecord: 97.2ms)
+
+
+Started GET "/plans" for 127.0.0.1 at 2015-04-01 21:52:10 +0530
+Processing by SubscriptionsController#plans as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mSubscription Load (0.2ms)[0m  SELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`user_id` = 1 LIMIT 1
+  [1m[36mPlan Load (0.1ms)[0m  [1mSELECT `plans`.* FROM `plans`[0m
+  [1m[35mPlan Load (0.1ms)[0m  SELECT  `plans`.* FROM `plans` WHERE `plans`.`id` = 5 LIMIT 1
+  Rendered subscriptions/plans.html.erb within layouts/application (2.1ms)
+  Rendered layouts/_navigation_links.html.erb (2.9ms)
+  Rendered layouts/_navigation.html.erb (3.8ms)
+  Rendered layouts/_messages.html.erb (0.2ms)
+Completed 200 OK in 744ms (Views: 741.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/plan/10/unsubscribe" for 127.0.0.1 at 2015-04-01 21:52:19 +0530
+Processing by SubscriptionsController#destroy as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mSubscription Load (0.4ms)[0m  SELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`id` = 10 LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  DELETE FROM `subscriptions` WHERE `subscriptions`.`id` = 10
+  [1m[36m (87.1ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/plans
+Completed 302 Found in 3588ms (ActiveRecord: 88.5ms)
+
+
+Started GET "/plans" for 127.0.0.1 at 2015-04-01 21:52:22 +0530
+Processing by SubscriptionsController#plans as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mSubscription Load (0.2ms)[0m  [1mSELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`user_id` = 1 LIMIT 1[0m
+  [1m[35mPlan Load (0.1ms)[0m  SELECT `plans`.* FROM `plans`
+  Rendered subscriptions/plans.html.erb within layouts/application (1.4ms)
+  Rendered layouts/_navigation_links.html.erb (2.6ms)
+  Rendered layouts/_navigation.html.erb (3.4ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 684ms (Views: 681.3ms | ActiveRecord: 0.5ms)
