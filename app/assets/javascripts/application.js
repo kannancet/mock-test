@@ -11,8 +11,8 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
-//= require turbolinks
 //= require bootstrap-sprockets
 //= require notify.min
 //= require checkout
@@ -24,4 +24,9 @@
 //= require messages
 //= require subscriptions
 //= require app_namespace
+//= require turbolinks
+
+
+//Initialize Trubo links progress bar
+Turbolinks.enableProgressBar();
 

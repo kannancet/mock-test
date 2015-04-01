@@ -46,3 +46,4 @@ end
 gem 'devise'
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 gem 'open_exchange_rates'
+gem 'jquery-turbolinks'

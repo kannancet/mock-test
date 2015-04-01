@@ -15,3 +15,4 @@ $(document).on("page:load", function(){
 
 	AvidTest.initialize();
 });
+
