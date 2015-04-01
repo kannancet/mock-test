@@ -1,7 +1,7 @@
 class SubscriptionsController < ApplicationController
 
 	before_filter :set_plan, only: [:new, :create, :upgrade]
-	before_filter :authenticate_user!
+	before_filter :authenticate_user!, except: :plans
 
 	#Function to create subscription
 	def plans
