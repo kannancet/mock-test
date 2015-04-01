@@ -1,7 +1,6 @@
 class Subscription < ActiveRecord::Base
   
   belongs_to :user
-  belongs_to :coupon
   belongs_to :plan
 
   #Function to check if subscription is active or inactive
