@@ -13,30 +13,7 @@ class Api::SubscriptionsController < Api::BaseController
   #Function to create subscriptions
   def create
   	begin
-
-	  customer = Stripe::Customer.create(
-	    :email => stripe_params[:email],
-	    :card  => stripe_params[:token],
-	    :plan => stripe_params[:stripe_plan]
-	  )
-
-	  charge = Stripe::Charge.create(
-	    :customer    => customer.id,
-	    :amount      => stripe_params[:amount],
-	    :description => stripe_params[:desc],
-	    :currency    => stripe_params[:currency]
-	  )
-
-	  if customer && charge
-	  	new_subscription = Subscription.create(stripe_card_id: stripe_params[:card],
-						                        stripe_customer_id: customer.id,
-						                        stripe_charge_id: charge.id,
-						                        stripe_payment_email: stripe_params[:email],
-						  		                user_id: current_user.id,
-						  		                plan_id: stripe_params[:target_plan].to_i)
-	  @flash = {result: "success", msg: "You have successfully subscribed."}
-	  end
-	
+  	  @flash = Subscription.add(stripe_params, current_user)	
 	rescue Stripe::CardError => e
 	  @flash = {result: "fail", msg: e.message}
 	end	

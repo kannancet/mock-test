@@ -38606,3 +38606,337 @@ Processing by SubscriptionsController#plans as HTML
   Rendered layouts/_navigation.html.erb (3.4ms)
   Rendered layouts/_messages.html.erb (0.1ms)
 Completed 200 OK in 684ms (Views: 681.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-04-01 21:59:25 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by VisitorsController#index as HTML
+  Rendered visitors/index.html.erb within layouts/application (1.2ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered layouts/_navigation_links.html.erb (35.2ms)
+  Rendered layouts/_navigation.html.erb (36.9ms)
+  Rendered layouts/_messages.html.erb (0.9ms)
+Completed 200 OK in 8136ms (Views: 8115.8ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-04-01 21:59:33 +0530
+Processing by VisitorsController#index as HTML
+  Rendered visitors/index.html.erb within layouts/application (0.2ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered layouts/_navigation_links.html.erb (5.3ms)
+  Rendered layouts/_navigation.html.erb (6.2ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 976ms (Views: 974.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/plans" for 127.0.0.1 at 2015-04-01 22:00:07 +0530
+Processing by SubscriptionsController#plans as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mSubscription Load (0.1ms)[0m  [1mSELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`user_id` = 1 LIMIT 1[0m
+  [1m[35mPlan Load (0.1ms)[0m  SELECT `plans`.* FROM `plans`
+  Rendered subscriptions/plans.html.erb within layouts/application (10.5ms)
+  Rendered layouts/_navigation_links.html.erb (3.5ms)
+  Rendered layouts/_navigation.html.erb (5.2ms)
+  Rendered layouts/_messages.html.erb (0.6ms)
+Completed 200 OK in 914ms (Views: 885.7ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/plan/4/subscribe" for 127.0.0.1 at 2015-04-01 22:05:43 +0530
+Processing by SubscriptionsController#new as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mPlan Load (46.9ms)[0m  [1mSELECT  `plans`.* FROM `plans` WHERE `plans`.`id` = 4 LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered subscriptions/new.html.erb within layouts/application (4.3ms)
+  Rendered layouts/_navigation_links.html.erb (3.7ms)
+  Rendered layouts/_navigation.html.erb (19.2ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 1030ms (Views: 941.5ms | ActiveRecord: 47.0ms)
+
+
+Started POST "/api/subscriptions/convert_currency.json" for 127.0.0.1 at 2015-04-01 22:06:01 +0530
+Processing by Api::SubscriptionsController#convert_currency as JSON
+  Parameters: {"currency_params"=>{"target_currency"=>"AED", "target_plan"=>"4"}}
+  [1m[36mPlan Load (0.1ms)[0m  [1mSELECT  `plans`.* FROM `plans` WHERE `plans`.`id` = 4 LIMIT 1[0m
+  Rendered api/subscriptions/convert_currency.json.jbuilder (12.9ms)
+Completed 200 OK in 2415ms (Views: 35.1ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/api/subscriptions/convert_currency.json" for 127.0.0.1 at 2015-04-01 22:06:09 +0530
+Processing by Api::SubscriptionsController#convert_currency as JSON
+  Parameters: {"currency_params"=>{"target_currency"=>"USD", "target_plan"=>"4"}}
+  [1m[35mPlan Load (0.2ms)[0m  SELECT  `plans`.* FROM `plans` WHERE `plans`.`id` = 4 LIMIT 1
+  Rendered api/subscriptions/convert_currency.json.jbuilder (0.3ms)
+Completed 200 OK in 9ms (Views: 5.1ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/api/subscriptions/create.json" for 127.0.0.1 at 2015-04-01 22:06:33 +0530
+Processing by Api::SubscriptionsController#create as JSON
+  Parameters: {"stripe_params"=>{"token"=>"tok_15mopOH4XkuarA8OrtC9R1N5", "amount"=>"1000", "email"=>"kannanr@7nodes.com", "desc"=>"Avid Life Payment", "currency"=>"USD", "stripe_plan"=>"1", "card"=>"card_15mopOH4XkuarA8OnwmA64vw", "target_plan"=>"4"}}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (35.7ms)[0m  [1mINSERT INTO `subscriptions` (`stripe_card_id`, `stripe_customer_id`, `stripe_charge_id`, `stripe_payment_email`, `user_id`, `plan_id`, `created_at`, `updated_at`) VALUES ('card_15mopOH4XkuarA8OnwmA64vw', 'cus_5ymOcgp80FsNWN', 'ch_15mopYH4XkuarA8OPGGvHwHV', 'kannanr@7nodes.com', 1, 4, '2015-04-01 16:36:40.778589', '2015-04-01 16:36:40.778589')[0m
+  [1m[35m (146.8ms)[0m  COMMIT
+  Rendered api/subscriptions/create.json.jbuilder (0.8ms)
+Completed 200 OK in 7291ms (Views: 24.1ms | ActiveRecord: 253.2ms)
+
+
+Started GET "/plans" for 127.0.0.1 at 2015-04-01 22:06:41 +0530
+Processing by SubscriptionsController#plans as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mSubscription Load (41.5ms)[0m  SELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`user_id` = 1 LIMIT 1
+  [1m[36mPlan Load (0.2ms)[0m  [1mSELECT `plans`.* FROM `plans`[0m
+  [1m[35mPlan Load (0.3ms)[0m  SELECT  `plans`.* FROM `plans` WHERE `plans`.`id` = 4 LIMIT 1
+  Rendered subscriptions/plans.html.erb within layouts/application (12.6ms)
+  Rendered layouts/_navigation_links.html.erb (3.6ms)
+  Rendered layouts/_navigation.html.erb (4.4ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 1027ms (Views: 948.0ms | ActiveRecord: 42.3ms)
+
+
+Started GET "/plan/11/deactivate" for 127.0.0.1 at 2015-04-01 22:06:57 +0530
+Processing by SubscriptionsController#deactivate as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mSubscription Load (0.2ms)[0m  SELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`id` = 11 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  UPDATE `subscriptions` SET `deactivation_status` = 1, `deactivated_at` = '2015-04-01 16:36:57.828741', `updated_at` = '2015-04-01 16:36:57.829794' WHERE `subscriptions`.`id` = 11
+  [1m[36m (83.7ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/plans
+Completed 302 Found in 94ms (ActiveRecord: 84.7ms)
+
+
+Started GET "/plans" for 127.0.0.1 at 2015-04-01 22:06:57 +0530
+Processing by SubscriptionsController#plans as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mSubscription Load (0.2ms)[0m  [1mSELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`user_id` = 1 LIMIT 1[0m
+  [1m[35mPlan Load (0.2ms)[0m  SELECT `plans`.* FROM `plans`
+  [1m[36mPlan Load (0.1ms)[0m  [1mSELECT  `plans`.* FROM `plans` WHERE `plans`.`id` = 4 LIMIT 1[0m
+  Rendered subscriptions/plans.html.erb within layouts/application (3.0ms)
+  Rendered layouts/_navigation_links.html.erb (2.9ms)
+  Rendered layouts/_navigation.html.erb (3.7ms)
+  Rendered layouts/_messages.html.erb (0.2ms)
+Completed 200 OK in 933ms (Views: 929.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/plan/11/reactivate" for 127.0.0.1 at 2015-04-01 22:07:05 +0530
+Processing by SubscriptionsController#reactivate as HTML
+  Parameters: {"id"=>"11"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mSubscription Load (0.5ms)[0m  [1mSELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`id` = 11 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE `subscriptions` SET `deactivation_status` = 0, `deactivated_at` = NULL, `updated_at` = '2015-04-01 16:37:05.804845' WHERE `subscriptions`.`id` = 11[0m
+  [1m[35m (103.4ms)[0m  COMMIT
+Redirected to http://localhost:3000/plans
+Completed 302 Found in 132ms (ActiveRecord: 104.7ms)
+
+
+Started GET "/plans" for 127.0.0.1 at 2015-04-01 22:07:05 +0530
+Processing by SubscriptionsController#plans as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mSubscription Load (0.3ms)[0m  SELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`user_id` = 1 LIMIT 1
+  [1m[36mPlan Load (0.1ms)[0m  [1mSELECT `plans`.* FROM `plans`[0m
+  [1m[35mPlan Load (0.1ms)[0m  SELECT  `plans`.* FROM `plans` WHERE `plans`.`id` = 4 LIMIT 1
+  Rendered subscriptions/plans.html.erb within layouts/application (2.5ms)
+  Rendered layouts/_navigation_links.html.erb (4.9ms)
+  Rendered layouts/_navigation.html.erb (5.9ms)
+  Rendered layouts/_messages.html.erb (0.2ms)
+Completed 200 OK in 966ms (Views: 961.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/plan/11/deactivate" for 127.0.0.1 at 2015-04-01 22:07:15 +0530
+Processing by SubscriptionsController#deactivate as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mSubscription Load (0.3ms)[0m  SELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`id` = 11 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  UPDATE `subscriptions` SET `deactivation_status` = 1, `deactivated_at` = '2015-04-01 16:37:15.460409', `updated_at` = '2015-04-01 16:37:15.461786' WHERE `subscriptions`.`id` = 11
+  [1m[36m (71.6ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/plans
+Completed 302 Found in 85ms (ActiveRecord: 73.3ms)
+
+
+Started GET "/plans" for 127.0.0.1 at 2015-04-01 22:07:15 +0530
+Processing by SubscriptionsController#plans as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mSubscription Load (0.3ms)[0m  [1mSELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`user_id` = 1 LIMIT 1[0m
+  [1m[35mPlan Load (0.1ms)[0m  SELECT `plans`.* FROM `plans`
+  [1m[36mPlan Load (0.1ms)[0m  [1mSELECT  `plans`.* FROM `plans` WHERE `plans`.`id` = 4 LIMIT 1[0m
+  Rendered subscriptions/plans.html.erb within layouts/application (2.5ms)
+  Rendered layouts/_navigation_links.html.erb (3.2ms)
+  Rendered layouts/_navigation.html.erb (4.2ms)
+  Rendered layouts/_messages.html.erb (0.2ms)
+Completed 200 OK in 928ms (Views: 922.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/plan/11/unsubscribe" for 127.0.0.1 at 2015-04-01 22:07:20 +0530
+Processing by SubscriptionsController#destroy as HTML
+  Parameters: {"id"=>"11"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mSubscription Load (0.3ms)[0m  [1mSELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`id` = 11 LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (23.7ms)[0m  [1mDELETE FROM `subscriptions` WHERE `subscriptions`.`id` = 11[0m
+  [1m[35m (67.5ms)[0m  COMMIT
+Redirected to http://localhost:3000/plans
+Completed 302 Found in 4325ms (ActiveRecord: 91.9ms)
+
+
+Started GET "/plans" for 127.0.0.1 at 2015-04-01 22:07:24 +0530
+Processing by SubscriptionsController#plans as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mSubscription Load (0.3ms)[0m  SELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`user_id` = 1 LIMIT 1
+  [1m[36mPlan Load (0.2ms)[0m  [1mSELECT `plans`.* FROM `plans`[0m
+  Rendered subscriptions/plans.html.erb within layouts/application (2.3ms)
+  Rendered layouts/_navigation_links.html.erb (2.7ms)
+  Rendered layouts/_navigation.html.erb (3.6ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 784ms (Views: 780.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/plan/4/subscribe" for 127.0.0.1 at 2015-04-01 22:08:12 +0530
+Processing by SubscriptionsController#new as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mPlan Load (0.1ms)[0m  SELECT  `plans`.* FROM `plans` WHERE `plans`.`id` = 4 LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered subscriptions/new.html.erb within layouts/application (5.0ms)
+  Rendered layouts/_navigation_links.html.erb (5.2ms)
+  Rendered layouts/_navigation.html.erb (6.7ms)
+  Rendered layouts/_messages.html.erb (0.2ms)
+Completed 200 OK in 1149ms (Views: 1144.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2015-04-01 22:08:21 +0530
+Processing by Devise::SessionsController#destroy as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 660ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-04-01 22:08:23 +0530
+Processing by VisitorsController#index as HTML
+  Rendered visitors/index.html.erb within layouts/application (0.6ms)
+  Rendered layouts/_navigation_links.html.erb (11.6ms)
+  Rendered layouts/_navigation.html.erb (12.6ms)
+  Rendered layouts/_messages.html.erb (0.2ms)
+Completed 200 OK in 828ms (Views: 826.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-04-01 22:08:25 +0530
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered /home/kannan/.rvm/gems/ruby-2.0.0-p353/gems/devise-3.4.1/app/views/devise/shared/_links.html.erb (6.1ms)
+  Rendered /home/kannan/.rvm/gems/ruby-2.0.0-p353/gems/devise-3.4.1/app/views/devise/registrations/new.html.erb within layouts/application (95.4ms)
+  Rendered layouts/_navigation_links.html.erb (3.1ms)
+  Rendered layouts/_navigation.html.erb (4.2ms)
+  Rendered layouts/_messages.html.erb (0.3ms)
+Completed 200 OK in 1046ms (Views: 1044.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/plans" for 127.0.0.1 at 2015-04-01 22:08:31 +0530
+Processing by SubscriptionsController#plans as HTML
+Completed 401 Unauthorized in 1ms
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2015-04-01 22:08:31 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendered /home/kannan/.rvm/gems/ruby-2.0.0-p353/gems/devise-3.4.1/app/views/devise/shared/_links.html.erb (11.7ms)
+  Rendered /home/kannan/.rvm/gems/ruby-2.0.0-p353/gems/devise-3.4.1/app/views/devise/sessions/new.html.erb within layouts/application (25.9ms)
+  Rendered layouts/_navigation_links.html.erb (4.4ms)
+  Rendered layouts/_navigation.html.erb (5.4ms)
+  Rendered layouts/_messages.html.erb (0.2ms)
+Completed 200 OK in 1077ms (Views: 1073.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/plans" for 127.0.0.1 at 2015-04-01 22:09:14 +0530
+Processing by SubscriptionsController#plans as HTML
+Completed 401 Unauthorized in 2ms
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2015-04-01 22:09:14 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendered /home/kannan/.rvm/gems/ruby-2.0.0-p353/gems/devise-3.4.1/app/views/devise/shared/_links.html.erb (7.9ms)
+  Rendered /home/kannan/.rvm/gems/ruby-2.0.0-p353/gems/devise-3.4.1/app/views/devise/sessions/new.html.erb within layouts/application (22.1ms)
+  Rendered layouts/_navigation_links.html.erb (3.6ms)
+  Rendered layouts/_navigation.html.erb (4.5ms)
+  Rendered layouts/_messages.html.erb (0.2ms)
+Completed 200 OK in 1101ms (Views: 1099.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-04-01 22:09:52 +0530
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered /home/kannan/.rvm/gems/ruby-2.0.0-p353/gems/devise-3.4.1/app/views/devise/shared/_links.html.erb (3.9ms)
+  Rendered /home/kannan/.rvm/gems/ruby-2.0.0-p353/gems/devise-3.4.1/app/views/devise/registrations/new.html.erb within layouts/application (12.0ms)
+  Rendered layouts/_navigation_links.html.erb (4.3ms)
+  Rendered layouts/_navigation.html.erb (5.7ms)
+  Rendered layouts/_messages.html.erb (0.2ms)
+Completed 200 OK in 964ms (Views: 962.3ms | ActiveRecord: 0.0ms)
+  [1m[36mSubscription Load (0.9ms)[0m  [1mSELECT  `subscriptions`.* FROM `subscriptions`  ORDER BY `subscriptions`.`id` ASC LIMIT 1[0m
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2015-04-01 22:48:02 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendered /home/kannan/.rvm/gems/ruby-2.0.0-p353/gems/devise-3.4.1/app/views/devise/shared/_links.html.erb (5.0ms)
+  Rendered /home/kannan/.rvm/gems/ruby-2.0.0-p353/gems/devise-3.4.1/app/views/devise/sessions/new.html.erb within layouts/application (9.9ms)
+  Rendered layouts/_navigation_links.html.erb (2.9ms)
+  Rendered layouts/_navigation.html.erb (3.7ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 981ms (Views: 714.7ms | ActiveRecord: 253.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2015-04-01 22:48:09 +0530
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"YmOTo5ZezOQvWABUgDM0Cq+OmLd8U0sEdMLY4hG74QfO4TRJXxuYbuJcTFIARt8bzLuKoEu/eJishixqI1Mr/g==", "user"=>{"email"=>"kannanr@7nodes.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (103.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'kannanr@7nodes.com'  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE `users` SET `last_sign_in_at` = '2015-03-31 17:46:20.000000', `current_sign_in_at` = '2015-04-01 17:18:09.834575', `sign_in_count` = 4, `updated_at` = '2015-04-01 17:18:09.836157' WHERE `users`.`id` = 1[0m
+  [1m[35m (116.0ms)[0m  COMMIT
+Redirected to http://localhost:3000/plans
+Completed 302 Found in 400ms (ActiveRecord: 219.4ms)
+
+
+Started GET "/plans" for 127.0.0.1 at 2015-04-01 22:48:09 +0530
+Processing by SubscriptionsController#plans as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mSubscription Load (0.2ms)[0m  SELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`user_id` = 1 LIMIT 1
+  [1m[36mPlan Load (0.2ms)[0m  [1mSELECT `plans`.* FROM `plans`[0m
+  Rendered subscriptions/plans.html.erb within layouts/application (9.0ms)
+  Rendered layouts/_navigation_links.html.erb (2.7ms)
+  Rendered layouts/_navigation.html.erb (3.4ms)
+  Rendered layouts/_messages.html.erb (0.2ms)
+Completed 200 OK in 793ms (Views: 705.3ms | ActiveRecord: 5.7ms)
+
+
+Started GET "/plan/4/subscribe" for 127.0.0.1 at 2015-04-01 22:48:15 +0530
+Processing by SubscriptionsController#new as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mPlan Load (0.3ms)[0m  SELECT  `plans`.* FROM `plans` WHERE `plans`.`id` = 4 LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered subscriptions/new.html.erb within layouts/application (3.3ms)
+  Rendered layouts/_navigation_links.html.erb (2.8ms)
+  Rendered layouts/_navigation.html.erb (3.7ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 694ms (Views: 687.0ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/api/subscriptions/create.json" for 127.0.0.1 at 2015-04-01 22:48:36 +0530
+Processing by Api::SubscriptionsController#create as JSON
+  Parameters: {"stripe_params"=>{"token"=>"tok_15mpU5H4XkuarA8OG7hUy4d7", "amount"=>"1000", "email"=>"kannanr@7nodes.com", "desc"=>"Avid Life Payment", "currency"=>"USD", "stripe_plan"=>"1", "card"=>"card_15mpU5H4XkuarA8O6CE20xzO", "target_plan"=>"4"}}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `subscriptions` (`stripe_card_id`, `stripe_customer_id`, `stripe_charge_id`, `stripe_payment_email`, `user_id`, `plan_id`, `created_at`, `updated_at`) VALUES ('card_15mpU5H4XkuarA8O6CE20xzO', 'cus_5yn4zEs81Vd6do', 'ch_15mpUCH4XkuarA8ONnt3jtuS', 'kannanr@7nodes.com', 1, 4, '2015-04-01 17:18:41.132970', '2015-04-01 17:18:41.132970')
+  [1m[36m (159.0ms)[0m  [1mCOMMIT[0m
+  Rendered api/subscriptions/create.json.jbuilder (0.3ms)
+Completed 200 OK in 5114ms (Views: 8.2ms | ActiveRecord: 159.7ms)
+
+
+Started GET "/plans" for 127.0.0.1 at 2015-04-01 22:48:41 +0530
+Processing by SubscriptionsController#plans as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mSubscription Load (0.3ms)[0m  [1mSELECT  `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`user_id` = 1 LIMIT 1[0m
+  [1m[35mPlan Load (0.2ms)[0m  SELECT `plans`.* FROM `plans`
+  [1m[36mPlan Load (0.2ms)[0m  [1mSELECT  `plans`.* FROM `plans` WHERE `plans`.`id` = 4 LIMIT 1[0m
+  Rendered subscriptions/plans.html.erb within layouts/application (11.4ms)
+  Rendered layouts/_navigation_links.html.erb (2.5ms)
+  Rendered layouts/_navigation.html.erb (3.2ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 893ms (Views: 886.1ms | ActiveRecord: 0.9ms)
