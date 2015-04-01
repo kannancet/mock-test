@@ -15,11 +15,13 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require notify.min
+//= require checkout
 //= require bootstrap-datepicker
 //= require object_serializer
 //= require avid_test
 //= require common
 //= require users
 //= require messages
+//= require subscriptions
 //= require app_namespace
 

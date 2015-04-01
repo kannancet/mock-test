@@ -7,7 +7,7 @@ AvidTest.Common = {
      */
 
     callAPI: function(path, params, callback){
-	    $.post(path, params, callback);    	
+	    $.post(window.location.origin + "/" + path , params, callback); 	
     },
 
 

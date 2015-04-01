@@ -1,5 +1,5 @@
 class Subscription < ActiveRecord::Base
-  include Koudoku::Subscription
+  #include Koudoku::Subscription
 
   
   belongs_to :user
