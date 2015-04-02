@@ -3,9 +3,11 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-	has_many :messages
 
+	has_many :messages
 	has_one :subscription
+
+	validates_presence_of :email
 
 	#Remove deactivated subscriptions above 24 hours.
 	def clean_subscriptions

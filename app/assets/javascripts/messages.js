@@ -10,7 +10,7 @@ AvidTest.Message = {
             form_params = {message: $(this).serializeObject()};
             $('#add_message_form #submit_message').val("Adding ...");
 
-            AvidTest.Common.callAPI("/api/messages.json", form_params ,  function(response){
+            AvidTest.Common.callAPI("api/messages.json", form_params ,  function(response){
             	console.log(response);
                 $.notify("Successfully created message", "success");
             	$('#add_message_form #submit_message').val("Add");              

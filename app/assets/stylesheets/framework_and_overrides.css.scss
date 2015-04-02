@@ -57,6 +57,9 @@ section {
  border:1px solid #f9f9f9; padding:10px 20px; float:left
 }
 
+.modal, .modal.fade.in {
+    top: 20%; /* was 10% */
+}
 
 
 
