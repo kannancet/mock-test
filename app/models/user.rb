@@ -11,9 +11,9 @@ class User < ActiveRecord::Base
 	def clean_subscriptions
 	  if @subscription = self.subscription
 	  	unless @subscription.active?
-	  	  recatch_time = ((Time.now - @subscription.deactivated_at) / 3600).round
+	  	  recatch_time = ((Time.now - @subscription.deactivated_at) / 1.hour).round
 	  	  if recatch_time > 24 
-	  	  	@subscription.destroy
+	  	  	@subscription.remove
 	  	  end
 	  	end
 	  end

@@ -24,14 +24,14 @@ class Subscription < ActiveRecord::Base
   #function to deactivate subscription
   def deactivate(flash)
   	flash[:notice] = "Successfully deactivated your subscription"
-	update(deactivation_status: true, deactivated_at: Time.now)
+	  update(deactivation_status: true, deactivated_at: Time.now)
   end
 
   #Function delete subscription for ever
   def remove
     customer = Stripe::Customer.retrieve(self.stripe_customer_id)
-	customer.delete()
-	self.destroy
+	  customer.delete()
+	  self.destroy
   end
 
   #Function to create subscription

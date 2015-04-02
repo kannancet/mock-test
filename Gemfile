@@ -42,8 +42,10 @@ group :test do
   gem 'database_cleaner'
   gem 'launchy'
   gem 'selenium-webdriver'
+  gem 'stripe-ruby-mock', '~> 2.1.1', :require => 'stripe_mock'
 end
 gem 'devise'
-gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+gem 'stripe', '1.20.1' #:git => 'https://github.com/stripe/stripe-ruby'
 gem 'open_exchange_rates'
 gem 'jquery-turbolinks'
+gem 'stripe-ruby-mock', '~> 2.1.1', :require => 'stripe_mock'

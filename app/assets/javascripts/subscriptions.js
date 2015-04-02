@@ -87,7 +87,7 @@ AvidTest.Subscription = {
      */
     initialize: function(){
     	AvidTest.Subscription.currencyConverter();
-        AvidTest.Subscription.makePayment();
+      AvidTest.Subscription.makePayment();
     }
 
 };
